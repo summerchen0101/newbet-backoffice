@@ -4,7 +4,7 @@ import {connect} from 'react-redux'
 import { IInitialState } from './reducer'
 import {addCounter, subCounter} from './actions'
 
-const APP: React.FC<IProps> = (props) => {
+const App: React.FC<IProps> = (props) => {
   return (
     <div>
       <h2>{props.counter}</h2>
@@ -35,4 +35,4 @@ type IProps = IInitialState & ReturnType<typeof mapDispatchToProps> & {
 
 
 
-export default connect(mapStateToProps, mapDispatchToProps)(APP)
+export default connect(mapStateToProps, mapDispatchToProps)(App)
