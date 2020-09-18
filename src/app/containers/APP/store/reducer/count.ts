@@ -1,3 +1,4 @@
+import * as actionType from '../constants'
 export interface IInitialState {
   counter: number
 }
@@ -8,9 +9,9 @@ const initialState: IInitialState = {
 
 export default function (state = initialState, action) {
   switch(action.type) {
-    case 'ADD_COUNTER':
+    case actionType.ADD_COUNTER:
       return {...state, counter: state.counter + action.value}
-    case 'SUB_COUNTER':
+    case actionType.SUB_COUNTER:
       return {...state, counter: state.counter - action.value}
 
   }

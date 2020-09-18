@@ -1,8 +1,9 @@
 import React from 'react';
 import {User} from '../../components/User';
 import {connect} from 'react-redux'
-import { IInitialState } from './reducer'
-import {addCounter, subCounter} from './actions'
+// import { IInitialState } from './store/reducer/count'
+import {addCounter, subCounter} from './store/actions'
+import {RootState} from '../../index'
 
 const App: React.FC<IProps> = (props) => {
   return (
@@ -16,9 +17,9 @@ const App: React.FC<IProps> = (props) => {
   );
 }
 
-const mapStateToProps = (state: IInitialState) => {
+const mapStateToProps = (state: RootState) => {
   return {
-    counter: state.counter
+    counter: state.count.counter
   }
 }
 
@@ -28,10 +29,11 @@ const mapDispatchToProps = (dispatch) => {
     onSub: (num) => dispatch(subCounter(num)),
   }
 }
-type IProps = IInitialState & ReturnType<typeof mapDispatchToProps> & {
-  compiler: string
-  framework: string
-}
+type IProps = ReturnType<typeof mapStateToProps> &
+  ReturnType<typeof mapDispatchToProps> & {
+    compiler: string
+    framework: string
+  }
 
 
 
