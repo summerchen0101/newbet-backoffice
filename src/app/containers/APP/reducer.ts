@@ -8,9 +8,9 @@ const initialState: IInitialState = {
 
 export default function (state = initialState, action) {
   switch(action.type) {
-    case 'ADD_COUNT':
+    case 'ADD_COUNTER':
       return {...state, counter: state.counter + action.value}
-    case 'SUB_COUNT':
+    case 'SUB_COUNTER':
       return {...state, counter: state.counter - action.value}
 
   }

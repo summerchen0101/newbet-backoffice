@@ -2,15 +2,14 @@ import React from 'react';
 import {User} from '../../components/User';
 import {connect} from 'react-redux'
 import { IInitialState } from './reducer'
+import {addCounter, subCounter} from './actions'
 
-interface IProps extends IInitialState{
-  compiler: string
-  framework: string
-}
 const APP: React.FC<IProps> = (props) => {
   return (
     <div>
-      <div>{props.counter}</div>
+      <h2>{props.counter}</h2>
+      <button onClick={() => props.onAdd(10)}>ADD</button>
+      <button onClick={() => props.onSub(10)}>SUB</button>
       <div>{props.framework}</div>
       <User name="summer" age={20} specialize="economy"></User>
     </div>
@@ -23,4 +22,17 @@ const mapStateToProps = (state: IInitialState) => {
   }
 }
 
-export default connect(mapStateToProps)(APP)
+const mapDispatchToProps = (dispatch) => {
+  return {
+    onAdd: (num) => dispatch(addCounter(num)),
+    onSub: (num) => dispatch(subCounter(num)),
+  }
+}
+type IProps = IInitialState & ReturnType<typeof mapDispatchToProps> & {
+  compiler: string
+  framework: string
+}
+
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(APP)
