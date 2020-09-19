@@ -14,6 +14,7 @@ const App: React.FC<IProps> = (props) => (
     <button onClick={() => props.onFetchUser(2)}>GET USER 2</button>
     <div>{props.framework}</div>
     <div>{props.user?.name}</div>
+    <div>{props.user?.email}</div>
     <User name="summer" age={20} specialize="economy" />
   </div>
 );
