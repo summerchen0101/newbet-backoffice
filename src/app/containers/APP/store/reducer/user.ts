@@ -1,4 +1,5 @@
 import * as actionType from '../constants';
+import produce from 'immer';
 type IUser = {
   name: string;
   email: string;
@@ -13,13 +14,10 @@ const initialState: IState = {
 export default function (state = initialState, action) {
   switch (action.type) {
     case actionType.USER_FETCH_SUCCESS:
-      state = {
-        ...state,
-        user: {
-          name: action.user.name,
-          email: action.user.email,
-        },
-      };
+      return produce(state, (draftState) => {
+        draftState.user.name = action.user.name;
+        draftState.user.email = action.user.email;
+      });
   }
   return state;
 }

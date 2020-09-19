@@ -1,4 +1,5 @@
 import * as actionType from '../constants';
+import produce from 'immer';
 
 export interface IInitialState {
   counter: number;
@@ -10,9 +11,13 @@ const initialState: IInitialState = {
 export default function (state = initialState, action) {
   switch (action.type) {
     case actionType.ADD_COUNTER:
-      return { ...state, counter: state.counter + action.value };
+      return produce(state, (draftSate) => {
+        draftSate.counter += action.value;
+      });
     case actionType.SUB_COUNTER:
-      return { ...state, counter: state.counter - action.value };
+      return produce(state, (draftSate) => {
+        draftSate.counter -= action.value;
+      });
   }
   return state;
 }
