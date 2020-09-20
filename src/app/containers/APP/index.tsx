@@ -2,8 +2,8 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { User } from '../../components/User';
 // import { IInitialState } from './store/reducer/count'
-import { addCounter, subCounter, userFetchRequest } from './store/actions';
-import { RootState } from '../../index';
+import { addCounter, subCounter, userFetchRequest } from '../../store/actions';
+import { RootState } from '../../store';
 
 const App: React.FC<IProps> = (props) => (
   <div>
