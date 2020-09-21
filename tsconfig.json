@@ -1,5 +1,10 @@
 {
   "compilerOptions": {
+    "baseUrl": "./",
+    "paths": {
+      "store/*": ["src/app/store/*"],
+      "app/*": ["src/app/*"],
+    },
     "sourceMap": true,
     "module": "commonjs",
     "esModuleInterop": true,
@@ -10,7 +15,7 @@
     "lib": [
       "dom",
       "es6"
-    ]
+    ],
   },
   "include": [
     "src"

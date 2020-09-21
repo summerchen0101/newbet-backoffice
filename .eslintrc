@@ -23,5 +23,21 @@
    "rules":{
       "no-console":1,
       "prettier/prettier":2
+   },
+   "settings": {
+      "import/resolver":{
+         "alias":{
+            "map":[
+               ["store", "./src/app/store"],
+               ["app", "./src/app"]
+            ],
+            "extensions":[
+               ".ts",
+               ".js",
+               ".jsx",
+               ".json"
+            ]
+         }
+      }
    }
 }
