@@ -8,7 +8,6 @@ const App: React.FC<IProps> = (props) => (
   <div>
     <button onClick={() => props.onFetchUser(1)}>GET USER 1</button>
     <button onClick={() => props.onFetchUser(2)}>GET USER 2</button>
-    <div>{props.framework}</div>
     <div>{props.user?.name}</div>
     <div>{props.user?.email}</div>
     <User name="summer" age={20} specialize="economy" />
@@ -24,9 +23,6 @@ const mapDispatchToProps = (dispatch) => ({
 });
 
 type IProps = ReturnType<typeof mapStateToProps> &
-  ReturnType<typeof mapDispatchToProps> & {
-    compiler: string;
-    framework: string;
-  };
+  ReturnType<typeof mapDispatchToProps>;
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);

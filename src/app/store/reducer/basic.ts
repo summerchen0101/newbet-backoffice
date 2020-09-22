@@ -9,6 +9,7 @@ type IMenu = {
 };
 export interface IState {
   menu: IMenu[];
+  breadcrumb: string[];
 }
 
 const initialState: IState = {
@@ -24,6 +25,7 @@ const initialState: IState = {
       icon: 'team',
     },
   ],
+  breadcrumb: ['Master', 'Agency'],
 };
 export default (state = initialState, action) =>
   produce(state, (draft) => {

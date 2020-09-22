@@ -12,7 +12,7 @@ import { connect } from 'react-redux';
 import { RootState } from 'store/index';
 
 const mapStateToProps = (state: RootState) => ({
-  menu: state.menu.menu,
+  menu: state.basic.menu,
 });
 
 type IState = {
