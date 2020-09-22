@@ -4,10 +4,10 @@ import mySaga from './saga';
 
 const sagaMiddleware = createSagaMiddleware();
 
-import countReducer from './reducer/count';
+import menuReducer from './reducer/menu';
 import userReducer from './reducer/user';
 const rootReducer = combineReducers({
-  count: countReducer,
+  menu: menuReducer,
   user: userReducer,
 });
 

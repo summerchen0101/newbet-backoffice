@@ -1,5 +1,5 @@
 import React from 'react';
-import Dashboard from 'app/components/Dashboard';
+import Dashboard from 'app/containers/Dashboard';
 import LoginPage from 'app/containers/LoginPage';
 import { connect } from 'react-redux';
 import {

@@ -4,50 +4,39 @@ import { Link } from 'react-router-dom';
 import {
   DesktopOutlined,
   PieChartOutlined,
-  FileOutlined,
   TeamOutlined,
   UserOutlined,
 } from '@ant-design/icons';
 import produce from 'immer';
-type IMenu = {
-  name: string;
-  path?: string;
-  child?: IMenu[];
-  icon?: string;
-};
-type IProps = {
+import { connect } from 'react-redux';
+import { RootState } from 'store/index';
+
+const mapStateToProps = (state: RootState) => ({
+  menu: state.menu.menu,
+});
+
+type IState = {
   collapsed: boolean;
-  menu: IMenu[];
 };
-const initState: IProps = {
+const initState: IState = {
   collapsed: false,
-  menu: [
-    { name: 'Home', path: '/home', icon: 'desktop' },
-    { name: 'Profile', path: '/profile', icon: 'user' },
-    {
-      name: 'User',
-      child: [
-        { name: 'Tom', path: '/tom' },
-        { name: 'Jack', path: '/jack' },
-      ],
-      icon: 'team',
-    },
-  ],
 };
-export default (props) => {
+
+const iconMap = {
+  user: UserOutlined,
+  team: TeamOutlined,
+  desktop: DesktopOutlined,
+  pieChart: PieChartOutlined,
+};
+
+const Component: React.FC<ReturnType<typeof mapStateToProps>> = (props) => {
   const [state, setState] = useState(initState);
-  const menuRoop = state.menu.map((m, m_i) => {
-    const iconMap = {
-      user: UserOutlined,
-      team: TeamOutlined,
-      desktop: DesktopOutlined,
-      pieChart: PieChartOutlined,
-    };
+  const menuRoop = props.menu.map((m, m_i) => {
     const IconName = iconMap[m.icon ?? 'user'];
     if (!m.child) {
       return (
         <Menu.Item key={m_i} icon={<IconName />}>
-          <Link to="/home">{m.name}</Link>
+          <Link to={m.path}>{m.name}</Link>
         </Menu.Item>
       );
     } else {
@@ -80,3 +69,4 @@ export default (props) => {
     </Layout.Sider>
   );
 };
+export default connect(mapStateToProps)(Component);
