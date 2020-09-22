@@ -1,24 +1,21 @@
-import { Layout, Menu, Breadcrumb } from 'antd';
+import { Layout } from 'antd';
+import Wrap from './Wrap';
 import React from 'react';
-import './style.css';
 import Sidebar from 'app/components/Sider';
 import Header from 'app/components/Header';
 import Content from 'app/components/Content';
-
-const { Footer } = Layout;
+import Footer from 'app/components/Footer';
 
 const Dashboard: React.FC = (props) => {
   return (
-    <Layout style={{ minHeight: '100vh' }} id="dashboard">
+    <Wrap id="dashboard">
       <Sidebar />
-      <Layout className="site-layout">
+      <Layout>
         <Header />
         <Content />
-        <Footer style={{ textAlign: 'center' }}>
-          Ant Design ©2018 Created by Ant UED
-        </Footer>
+        <Footer />
       </Layout>
-    </Layout>
+    </Wrap>
   );
 };
 

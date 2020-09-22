@@ -5,6 +5,7 @@ import Home from 'app/containers/HomePage';
 import Profile from 'app/containers/Profile';
 import { connect } from 'react-redux';
 import { RootState } from 'app/store';
+import Board from './Board';
 
 const mapStateToProps = (state: RootState) => ({
   foo: 'bar',
@@ -18,18 +19,15 @@ const Component: React.FC<ReturnType<typeof mapStateToProps>> = (props) => {
     <Content style={{ margin: '0 16px' }}>
       <Breadcrumb style={{ margin: '16px 0' }}>
         {props.breadcrumb.map((label) => (
-          <Breadcrumb.Item>{label}</Breadcrumb.Item>
+          <Breadcrumb.Item key={label}>{label}</Breadcrumb.Item>
         ))}
       </Breadcrumb>
-      <div
-        className="site-layout-background"
-        style={{ padding: 24, minHeight: 360 }}
-      >
+      <Board>
         <Switch>
           <Route path="/home" component={Home} />
           <Route path="/profile" component={Profile} />
         </Switch>
-      </div>
+      </Board>
     </Content>
   );
 };

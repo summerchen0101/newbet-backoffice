@@ -10,6 +10,7 @@ import {
 import produce from 'immer';
 import { connect } from 'react-redux';
 import { RootState } from 'store/index';
+import Logo from './logo';
 
 const mapStateToProps = (state: RootState) => ({
   menu: state.basic.menu,
@@ -62,7 +63,7 @@ const Component: React.FC<ReturnType<typeof mapStateToProps>> = (props) => {
       collapsed={state.collapsed}
       onCollapse={onCollapse}
     >
-      <div className="logo" />
+      <Logo />
       <Menu theme="dark" defaultSelectedKeys={['1']} mode="inline">
         {menuRoop}
       </Menu>
