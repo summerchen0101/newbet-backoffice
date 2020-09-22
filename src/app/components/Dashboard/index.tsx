@@ -8,6 +8,9 @@ import {
 } from '@ant-design/icons';
 import React, { useState } from 'react';
 import './style.css';
+import Home from 'app/containers/HomePage';
+import Profile from 'app/containers/Profile';
+import { HashRouter as Router, Switch, Route, Link } from 'react-router-dom';
 
 const { Header, Content, Footer, Sider } = Layout;
 const { SubMenu } = Menu;
@@ -26,10 +29,10 @@ const Dashboard: React.FC = (props) => {
         <div className="logo" />
         <Menu theme="dark" defaultSelectedKeys={['1']} mode="inline">
           <Menu.Item key="1" icon={<PieChartOutlined />}>
-            Option 1
+            <Link to="/home">Home</Link>
           </Menu.Item>
           <Menu.Item key="2" icon={<DesktopOutlined />}>
-            Option 2
+            <Link to="/profile">Profile</Link>
           </Menu.Item>
           <SubMenu key="sub1" icon={<UserOutlined />} title="User">
             <Menu.Item key="3">Tom</Menu.Item>
@@ -62,7 +65,14 @@ const Dashboard: React.FC = (props) => {
             className="site-layout-background"
             style={{ padding: 24, minHeight: 360 }}
           >
-            {props.children}
+            <Switch>
+              <Route path="/home">
+                <Home />
+              </Route>
+              <Route path="/profile">
+                <Profile />
+              </Route>
+            </Switch>
           </div>
         </Content>
         <Footer style={{ textAlign: 'center' }}>

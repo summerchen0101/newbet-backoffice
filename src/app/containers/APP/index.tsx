@@ -1,39 +1,33 @@
 import React from 'react';
+import Dashboard from 'app/components/Dashboard';
+import LoginPage from 'app/containers/LoginPage';
 import { connect } from 'react-redux';
-import { User } from 'app/components/User';
-// import { IInitialState } from './store/reducer/count'
-import { addCounter, subCounter, userFetchRequest } from 'store/actions';
-import { RootState } from 'store/index';
+import {
+  HashRouter as Router,
+  Switch,
+  Route,
+  Redirect,
+} from 'react-router-dom';
+
+type IProps = { loggedIn: boolean };
 
 const App: React.FC<IProps> = (props) => (
-  <div>
-    <h2>{props.counter}</h2>
-    <button onClick={() => props.onAdd(10)}>ADD</button>
-    <button onClick={() => props.onSub(10)}>SUB</button>
-    <button onClick={() => props.onFetchUser(1)}>GET USER 1</button>
-    <button onClick={() => props.onFetchUser(2)}>GET USER 2</button>
-    <div>{props.framework}</div>
-    <div>{props.user?.name}</div>
-    <div>{props.user?.email}</div>
-    <User name="summer" age={20} specialize="economy" />
-  </div>
+  <Router>
+    <Switch>
+      <Route path="/login">
+        <LoginPage></LoginPage>
+      </Route>
+      <Route path="/">
+        {props.loggedIn ? <Dashboard /> : <Redirect to="/login" />}
+      </Route>
+    </Switch>
+  </Router>
 );
 
-const mapStateToProps = (state: RootState) => ({
-  counter: state.count.counter,
-  user: state.user.user,
+const mapStateToProps = (state) => ({
+  loggedIn: true,
 });
 
-const mapDispatchToProps = (dispatch) => ({
-  onAdd: (num) => dispatch(addCounter(num)),
-  onSub: (num) => dispatch(subCounter(num)),
-  onFetchUser: (id) => dispatch(userFetchRequest(id)),
-});
-
-type IProps = ReturnType<typeof mapStateToProps> &
-  ReturnType<typeof mapDispatchToProps> & {
-    compiler: string;
-    framework: string;
-  };
+const mapDispatchToProps = (dispatch) => ({});
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);
