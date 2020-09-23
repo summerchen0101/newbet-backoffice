@@ -8,7 +8,6 @@ import { RootState } from 'app/store';
 import Board from './Board';
 
 const mapStateToProps = (state: RootState) => ({
-  foo: 'bar',
   breadcrumb: state.basic.breadcrumb,
 });
 
