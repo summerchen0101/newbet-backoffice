@@ -1,10 +1,12 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+var CaseSensitivePathsPlugin = require('case-sensitive-paths-webpack-plugin');
 const path = require('path');
 module.exports = {
   entry: path.resolve(__dirname, 'src/app/index.tsx'),
   plugins: [
+    new CaseSensitivePathsPlugin(),
     new CleanWebpackPlugin({
       cleanAfterEveryBuildPatterns: ['public/build'],
     }),
