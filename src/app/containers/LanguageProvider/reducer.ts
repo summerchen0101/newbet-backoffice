@@ -1,4 +1,4 @@
-import * as actionType from '../constants';
+import * as actionType from './constants';
 import produce from 'immer';
 
 type TLocalesMessages = Record<string, Record<string, string>>;
@@ -20,5 +20,12 @@ const initialState: IState = {
 };
 export default (state = initialState, action) =>
   produce(state, (draft) => {
-    //
+    switch (action.type) {
+      case actionType.CHANGE_LANGUAGE:
+        draft.locale = action.lang;
+        break;
+
+      default:
+        break;
+    }
   });
