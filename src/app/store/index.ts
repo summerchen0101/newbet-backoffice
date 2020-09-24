@@ -7,7 +7,7 @@ const sagaMiddleware = createSagaMiddleware();
 import basicReducer from './reducer/basic';
 import userReducer from './reducer/user';
 import langReducer from '../containers/LanguageProvider/reducer';
-import styleReducer from '../containers/styleProvider/reducer';
+import styleReducer from '../containers/StyleProvider/reducer';
 
 const rootReducer = combineReducers({
   basic: basicReducer,

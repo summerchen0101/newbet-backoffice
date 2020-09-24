@@ -2,8 +2,9 @@ import { ThemeProvider } from 'styled-components';
 import React from 'react';
 import { connect } from 'react-redux';
 import { RootState } from 'app/store';
+import { makeSelectTheme } from './selector';
 const themes = {
-  summer: { mainColor: 'orange' },
+  summer: { mainColor: 'purple' },
   sweet: { mainColor: 'pink' },
 };
 
@@ -13,10 +14,13 @@ const Component: React.FC<IProps> = (props) => (
   </ThemeProvider>
 );
 
-const mapStateToProps = (state: RootState) => ({
-  theme: 'summer',
-});
+const makeMapStateToProps = () => {
+  const selectTheme = makeSelectTheme();
+  return (state: RootState) => ({
+    theme: selectTheme(state),
+  });
+};
 
-type IProps = ReturnType<typeof mapStateToProps>;
+type IProps = ReturnType<ReturnType<typeof makeMapStateToProps>>;
 
-export default connect(mapStateToProps)(Component);
+export default connect(makeMapStateToProps)(Component);

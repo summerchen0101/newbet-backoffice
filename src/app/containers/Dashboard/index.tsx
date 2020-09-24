@@ -6,6 +6,7 @@ import Header from 'app/components/Header';
 import Content from 'app/components/Content';
 import Footer from 'app/components/Footer';
 import LanguageDropdown from 'app/containers/LanguageDropdown';
+import ThemeDropdown from 'app/containers/ThemeDropdown';
 
 const Dashboard: React.FC = (props) => {
   return (
@@ -14,6 +15,7 @@ const Dashboard: React.FC = (props) => {
       <Layout>
         <Header>
           <LanguageDropdown />
+          <ThemeDropdown />
         </Header>
         <Content />
         <Footer />

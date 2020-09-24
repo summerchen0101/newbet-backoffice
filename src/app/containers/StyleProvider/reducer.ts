@@ -1,6 +1,8 @@
 import * as actionType from './constants';
 import produce from 'immer';
 
+export const themeOptions = ['summer', 'sweet'];
+
 export interface IState {
   theme: string;
 }
