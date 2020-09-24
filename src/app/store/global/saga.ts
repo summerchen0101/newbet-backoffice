@@ -6,7 +6,11 @@ import * as actions from './actions';
 function* fetchUser(action) {
   try {
     const user = yield call(Api.fetchUser, action.id);
-    yield put(actions.userFetchSuccess(user));
+    if ('username' in user) {
+      yield put(actions.userFetchSuccess(user));
+    } else {
+      throw new Error('[fetchUser] fallback data error');
+    }
   } catch (e) {
     yield put(actions.userFetchFailed(e.message));
   }

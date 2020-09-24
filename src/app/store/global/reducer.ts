@@ -1,19 +1,8 @@
 import * as actionType from './constants';
 import produce from 'immer';
+import { GlobalState, GlobalActionTypes } from './types';
 
-type IMenu = {
-  name: string;
-  path?: string;
-  child?: IMenu[];
-  icon?: string;
-};
-export interface IState {
-  menu: IMenu[];
-  breadcrumb: string[];
-  user: null | any;
-}
-
-const initialState: IState = {
+const initialState: GlobalState = {
   user: null,
   menu: [
     { name: 'Home', path: '/home', icon: 'desktop' },
@@ -30,11 +19,18 @@ const initialState: IState = {
   breadcrumb: ['Master', 'Agency'],
 };
 
-export default (state = initialState, action) =>
+export default (state = initialState, action: GlobalActionTypes): GlobalState =>
   produce(state, (draft) => {
     switch (action.type) {
       case actionType.USER_FETCH_SUCCESS:
-        draft.user = action.user;
+        draft.user = {
+          name: action.user.username,
+          email: action.user.email,
+        };
+        break;
+      case actionType.USER_FETCH_FAILED:
+        draft.user = null;
+        console.log(action.message);
         break;
     }
   });
