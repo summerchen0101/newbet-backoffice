@@ -1,5 +1,5 @@
 import { RootState } from 'app/store';
-import { createSelector, createStructuredSelector } from 'reselect';
+import { createSelector } from 'reselect';
 
 const selectLangState = (state: RootState) => state.lang;
 
