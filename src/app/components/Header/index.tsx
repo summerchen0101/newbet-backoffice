@@ -1,13 +1,8 @@
 import React from 'react';
 import Wrapper from './Wrapper';
-import LanguageDropdown from './LanguageDropdown';
 
-const Component = (props) => {
-  return (
-    <Wrapper>
-      <LanguageDropdown />
-    </Wrapper>
-  );
+const Component: React.FC = (props) => {
+  return <Wrapper>{props.children}</Wrapper>;
 };
 
 export default Component;

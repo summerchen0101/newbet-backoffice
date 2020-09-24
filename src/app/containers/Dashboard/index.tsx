@@ -5,13 +5,16 @@ import Sidebar from 'app/components/Sider';
 import Header from 'app/components/Header';
 import Content from 'app/components/Content';
 import Footer from 'app/components/Footer';
+import LanguageDropdown from 'app/containers/LanguageDropdown';
 
 const Dashboard: React.FC = (props) => {
   return (
     <Wrap id="dashboard">
       <Sidebar />
       <Layout>
-        <Header />
+        <Header>
+          <LanguageDropdown />
+        </Header>
         <Content />
         <Footer />
       </Layout>

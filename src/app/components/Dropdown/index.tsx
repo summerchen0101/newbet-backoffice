@@ -1,24 +1,18 @@
-import { Menu, Dropdown, message } from 'antd';
+import { Dropdown, Menu } from 'antd';
 import React from 'react';
-import { DownOutlined } from '@ant-design/icons';
-import A from 'app/components/A';
-import styled from 'styled-components';
+import DropdownLabel from 'app/components/DropdownLabel';
 
-const onClick = ({ key }) => {
-  message.info(`Click on item ${key}`);
+type Props = {
+  title: string;
+  menu: React.ReactElement;
 };
 
-const menu = (
-  <Menu onClick={onClick}>
-    <Menu.Item key="en">English</Menu.Item>
-    <Menu.Item key="zh">Chinese</Menu.Item>
-  </Menu>
-);
+const Component: React.FC<Props> = (props) => {
+  return (
+    <Dropdown overlay={props.menu} {...props}>
+      <DropdownLabel title={props.title} />
+    </Dropdown>
+  );
+};
 
-export default (props) => (
-  <Dropdown overlay={menu} {...props}>
-    <A onClick={(e) => e.preventDefault()}>
-      Language <DownOutlined />
-    </A>
-  </Dropdown>
-);
+export default Component;
