@@ -10,7 +10,7 @@ import A from '../A';
 import { ThemeProvider } from 'styled-components';
 
 const mapStateToProps = (state: RootState) => ({
-  breadcrumb: state.basic.breadcrumb,
+  breadcrumb: state.global.breadcrumb,
 });
 
 const { Content } = Layout;

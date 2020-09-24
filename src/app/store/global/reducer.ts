@@ -1,4 +1,4 @@
-import * as actionType from '../constants';
+import * as actionType from './constants';
 import produce from 'immer';
 
 type IMenu = {
@@ -10,9 +10,11 @@ type IMenu = {
 export interface IState {
   menu: IMenu[];
   breadcrumb: string[];
+  user: null | any;
 }
 
 const initialState: IState = {
+  user: null,
   menu: [
     { name: 'Home', path: '/home', icon: 'desktop' },
     { name: 'Profile', path: '/profile', icon: 'user' },
@@ -27,7 +29,12 @@ const initialState: IState = {
   ],
   breadcrumb: ['Master', 'Agency'],
 };
+
 export default (state = initialState, action) =>
   produce(state, (draft) => {
-    //
+    switch (action.type) {
+      case actionType.USER_FETCH_SUCCESS:
+        draft.user = action.user;
+        break;
+    }
   });

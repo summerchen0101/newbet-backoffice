@@ -1,8 +1,8 @@
 import Wrapper from './Wrapper';
 import React from 'react';
 import { connect } from 'react-redux';
-import { makeSelectTheme } from 'app/containers/StyleProvider/selector';
-import { changeTheme } from 'app/containers/StyleProvider/actions';
+import { makeSelectTheme } from 'app/store/style/selector';
+import { changeTheme } from 'store/style/actions';
 import makeDropdownMenu from './makeDropdownMenu';
 
 const Component: React.FC<Props> = (props) => {

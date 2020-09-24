@@ -5,7 +5,7 @@ import { RootState } from 'app/store';
 import {
   makeSelectLocale,
   makeSelectMessages,
-} from 'app/containers/LanguageProvider/selector';
+} from 'app/store/language/selector';
 
 const LanguageProvider: React.FC<IProps> = (props) => {
   return (

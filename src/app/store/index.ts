@@ -1,17 +1,15 @@
 import { createStore, combineReducers, applyMiddleware } from 'redux';
 import createSagaMiddleware from 'redux-saga';
-import mySaga from './saga';
+import mySaga from './global/saga';
 
 const sagaMiddleware = createSagaMiddleware();
 
-import basicReducer from './reducer/basic';
-import userReducer from './reducer/user';
-import langReducer from '../containers/LanguageProvider/reducer';
-import styleReducer from '../containers/StyleProvider/reducer';
+import globalReducer from 'app/store/global/reducer';
+import langReducer from 'app/store/language/reducer';
+import styleReducer from 'app/store/style/reducer';
 
 const rootReducer = combineReducers({
-  basic: basicReducer,
-  user: userReducer,
+  global: globalReducer,
   lang: langReducer,
   style: styleReducer,
 });

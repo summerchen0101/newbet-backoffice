@@ -1,6 +1,6 @@
 import { Menu } from 'antd';
 import React from 'react';
-import { localeOptions } from 'app/containers/LanguageProvider/reducer';
+import { localeOptions } from 'app/store/language/reducer';
 import { langCodeMapper } from 'app/utils/i18n';
 
 export default (changeLang) => (

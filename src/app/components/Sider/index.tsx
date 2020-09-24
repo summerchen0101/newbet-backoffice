@@ -13,7 +13,7 @@ import { RootState } from 'store/index';
 import Logo from './logo';
 
 const mapStateToProps = (state: RootState) => ({
-  menu: state.basic.menu,
+  menu: state.global.menu,
 });
 
 type IState = {

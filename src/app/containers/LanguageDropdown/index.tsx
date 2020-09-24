@@ -1,8 +1,8 @@
 import Wrapper from './Wrapper';
 import React from 'react';
 import { connect } from 'react-redux';
-import { makeSelectLocale } from 'app/containers/LanguageProvider/selector';
-import { changeLanguage } from 'app/containers/LanguageProvider/actions';
+import { makeSelectLocale } from 'app/store/language/selector';
+import { changeLanguage } from 'store/language/actions';
 import makeDropdownMenu from 'app/containers/LanguageDropdown/makeDropdownMenu';
 import { langCodeMapper } from 'app/utils/i18n';
 

@@ -2,7 +2,7 @@ import { ThemeProvider } from 'styled-components';
 import React from 'react';
 import { connect } from 'react-redux';
 import { RootState } from 'app/store';
-import { makeSelectTheme } from './selector';
+import { makeSelectTheme } from 'app/store/style/selector';
 const themes = {
   summer: { mainColor: 'purple' },
   sweet: { mainColor: 'pink' },
