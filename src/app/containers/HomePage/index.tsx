@@ -1,20 +1,53 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import { userFetchRequest } from 'app/store/global/actions';
 import { RootState } from 'store/index';
 import { Button } from 'antd';
 const users = [1, 2, 3];
-const Component: React.FC<IProps> = (props) => (
-  <div>
-    {users.map((t) => (
-      <Button onClick={() => props.onFetchUser(t)} key={t}>
-        User {t}
-      </Button>
-    ))}
-    <div>{props.user?.name}</div>
-    <div>{props.user?.email}</div>
-  </div>
-);
+const UserButtons = (props) => {
+  return (
+    <>
+      {users.map((t) => (
+        <Button onClick={() => props.onFetch(t)} key={t}>
+          User {t}
+        </Button>
+      ))}
+    </>
+  );
+};
+const UserInfo = (props) => {
+  return (
+    <>
+      <div>{props.user?.name}</div>
+      <div>{props.user?.email}</div>
+    </>
+  );
+};
+const MemoUserInfo = React.memo(UserInfo);
+
+const AddCountBtn = (props) => {
+  return <button onClick={props.onClick}>Add Count</button>;
+};
+const MemoAddCountBtn = React.memo(AddCountBtn);
+
+const Counter = (props) => {
+  return <h2>{props.count}</h2>;
+};
+const MemoCounter = React.memo(Counter);
+const Component: React.FC<IProps> = (props) => {
+  const [count, setState] = useState(0);
+  const onClick = () => setState((val) => ++val);
+  return (
+    <div>
+      <MemoCounter count={count} />
+      <UserButtons onFetch={props.onFetchUser} />
+      <UserInfo user={props.user} comp="UserInfo" />
+      <MemoUserInfo user={props.user} comp="MemoUserInfo" />
+      <AddCountBtn onClick={onClick} comp="AddCountBtn" />
+      <MemoAddCountBtn onClick={onClick} comp="MemoAddCountBtn" />
+    </div>
+  );
+};
 
 const mapStateToProps = (state: RootState) => ({
   user: state.global.user,

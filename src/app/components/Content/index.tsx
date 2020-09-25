@@ -15,10 +15,6 @@ const mapStateToProps = (state: RootState) => ({
 
 const { Content } = Layout;
 
-const theme = {
-  mainColor: 'blue',
-};
-
 const Component: React.FC<ReturnType<typeof mapStateToProps>> = (props) => {
   return (
     <Content style={{ margin: '0 16px' }}>
@@ -27,9 +23,7 @@ const Component: React.FC<ReturnType<typeof mapStateToProps>> = (props) => {
           <Breadcrumb.Item key={label}>{label}</Breadcrumb.Item>
         ))}
       </Breadcrumb>
-      <ThemeProvider theme={theme}>
-        <A>hello!</A>
-      </ThemeProvider>
+      <A>hello!</A>
       <Board>
         <Switch>
           <Route path="/home" component={Home} />

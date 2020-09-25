@@ -1,11 +1,14 @@
 import Wrapper from './Wrapper';
-import React from 'react';
+import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { makeSelectTheme } from 'app/store/style/selector';
 import { changeTheme } from 'store/style/actions';
 import makeDropdownMenu from './makeDropdownMenu';
 
 const Component: React.FC<Props> = (props) => {
+  useEffect(() => {
+    console.log('[ThemeDropdown] useEffect');
+  });
   const menu = makeDropdownMenu(props.changeTheme);
   return <Wrapper title={props.title} menu={menu} />;
 };
