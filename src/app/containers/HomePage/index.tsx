@@ -23,12 +23,10 @@ const UserInfo = (props) => {
     </>
   );
 };
-const MemoUserInfo = React.memo(UserInfo);
 
 const AddCountBtn = (props) => {
   return <button onClick={props.onClick}>Add Count</button>;
 };
-const MemoAddCountBtn = React.memo(AddCountBtn);
 
 const Counter = (props) => {
   return <h2>{props.count}</h2>;
@@ -38,14 +36,12 @@ const Component: React.FC<IProps> = (props) => {
   const [count, setState] = useState(0);
   const onClick = () => setState((val) => ++val);
   return (
-    <div>
+    <>
       <MemoCounter count={count} />
+      <AddCountBtn onClick={onClick} comp="AddCountBtn" />
       <UserButtons onFetch={props.onFetchUser} />
       <UserInfo user={props.user} comp="UserInfo" />
-      <MemoUserInfo user={props.user} comp="MemoUserInfo" />
-      <AddCountBtn onClick={onClick} comp="AddCountBtn" />
-      <MemoAddCountBtn onClick={onClick} comp="MemoAddCountBtn" />
-    </div>
+    </>
   );
 };
 
