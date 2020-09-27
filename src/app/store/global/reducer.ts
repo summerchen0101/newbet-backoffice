@@ -4,6 +4,7 @@ import { GlobalState, GlobalActionTypes } from './types';
 
 const initialState: GlobalState = {
   user: null,
+  users: [],
   menu: [
     { name: 'Home', path: '/home', icon: 'desktop' },
     { name: 'Profile', path: '/profile', icon: 'user' },

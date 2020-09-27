@@ -6,7 +6,6 @@ import { store } from './store';
 import LanguageProvider from 'app/containers/LanguageProvider';
 import StyleProvider from 'app/containers/StyleProvider';
 import 'antd/dist/antd.css';
-
 ReactDOM.render(
   <Provider store={store}>
     <LanguageProvider>

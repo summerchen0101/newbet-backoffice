@@ -2,17 +2,14 @@ import React from 'react';
 import Dashboard from 'app/containers/Dashboard';
 import LoginPage from 'app/containers/LoginPage';
 import { connect } from 'react-redux';
-import {
-  HashRouter as Router,
-  Switch,
-  Route,
-  Redirect,
-} from 'react-router-dom';
+import { Router, Switch, Route, Redirect } from 'react-router-dom';
+import { createBrowserHistory } from 'history';
 
+const history = createBrowserHistory();
 type IProps = { loggedIn: boolean };
 
 const App: React.FC<IProps> = (props) => (
-  <Router>
+  <Router history={history}>
     <Switch>
       <Route path="/login">
         <LoginPage></LoginPage>

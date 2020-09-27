@@ -15,6 +15,7 @@ export interface GlobalState {
   menu: MenuItem[];
   breadcrumb: string[];
   user: null | User;
+  users: User[];
 }
 
 /**
