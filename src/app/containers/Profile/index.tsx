@@ -1,9 +1,8 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import { useSelector, useDispatch, useStore } from 'react-redux';
-import { userFetchRequest } from 'app/store/global/actions';
+import UserAction from 'store/global/fetchUser/actions';
 import { RootState } from 'store/index';
 import { Button } from 'antd';
-import { User } from 'app/store/global/types';
 import { makeSelectUser } from 'app/store/global/selector';
 const users = [1, 2, 3];
 const UserButtons = (props) => {
@@ -30,7 +29,7 @@ const Component: React.FC = (props) => {
   const dispatch = useDispatch();
   const selectUser = useMemo(makeSelectUser, []);
   const user = useSelector(selectUser);
-  const onFetchUser = (id) => dispatch(userFetchRequest(id));
+  const onFetchUser = (id) => dispatch(UserAction.userFetchRequest(id));
   return (
     <>
       <h1>Profile</h1>

@@ -1,10 +1,10 @@
-import * as actionType from './constants';
+import * as actionType from './fetchUser/constants';
 import produce from 'immer';
-import { GlobalState, GlobalActionTypes } from './types';
+import { GlobalState } from './types';
+import { UserActionType } from './fetchUser/types';
 
 const initialState: GlobalState = {
   user: null,
-  users: [],
   menu: [
     { name: 'Home', path: '/home', icon: 'desktop' },
     { name: 'Profile', path: '/profile', icon: 'user' },
@@ -20,7 +20,7 @@ const initialState: GlobalState = {
   breadcrumb: ['Master', 'Agency'],
 };
 
-export default (state = initialState, action: GlobalActionTypes): GlobalState =>
+export default (state = initialState, action: UserActionType): GlobalState =>
   produce(state, (draft) => {
     switch (action.type) {
       case actionType.USER_FETCH_SUCCESS:
@@ -31,7 +31,6 @@ export default (state = initialState, action: GlobalActionTypes): GlobalState =>
         break;
       case actionType.USER_FETCH_FAILED:
         draft.user = null;
-        console.log(action.message);
         break;
     }
   });
