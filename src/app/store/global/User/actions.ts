@@ -11,4 +11,14 @@ export default class UserAction {
   static userFetchFailed(message: string): UserActionType {
     return { type: actionType.USER_FETCH_FAILED, message };
   }
+
+  static userListFetchRequest(): UserActionType {
+    return { type: actionType.USER_LIST_FETCH_REQUESTED };
+  }
+  static userListFetchSuccess(users): UserActionType {
+    return { type: actionType.USER_LIST_FETCH_SUCCESS, users };
+  }
+  static userListFetchFailed(message: string): UserActionType {
+    return { type: actionType.USER_LIST_FETCH_FAILED, message };
+  }
 }

@@ -1,10 +1,11 @@
-import * as actionType from './fetchUser/constants';
+import * as actionType from './User/constants';
 import produce from 'immer';
 import { GlobalState } from './types';
-import { UserActionType } from './fetchUser/types';
+import { UserActionType } from './User/types';
 
 const initialState: GlobalState = {
   user: null,
+  users: [],
   menu: [
     { name: 'Home', path: '/home', icon: 'desktop' },
     { name: 'Profile', path: '/profile', icon: 'user' },
@@ -31,6 +32,15 @@ export default (state = initialState, action: UserActionType): GlobalState =>
         break;
       case actionType.USER_FETCH_FAILED:
         draft.user = null;
+        break;
+      case actionType.USER_LIST_FETCH_SUCCESS:
+        draft.users = action.users.map((u) => ({
+          name: u.username,
+          email: u.email,
+        }));
+        break;
+      case actionType.USER_LIST_FETCH_FAILED:
+        draft.users = [];
         break;
     }
   });

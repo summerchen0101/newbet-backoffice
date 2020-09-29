@@ -1,40 +1,30 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import { useSelector, useDispatch, useStore } from 'react-redux';
-import UserAction from 'store/global/fetchUser/actions';
+import UserAction from 'store/global/User/actions';
 import { RootState } from 'store/index';
 import { Button } from 'antd';
-import { makeSelectUser } from 'app/store/global/selector';
-const users = [1, 2, 3];
-const UserButtons = (props) => {
-  return (
-    <>
-      {users.map((t) => (
-        <Button onClick={() => props.onFetch(t)} key={t}>
-          User {t}
-        </Button>
-      ))}
-    </>
-  );
-};
-const UserInfo = (props) => {
-  return (
-    <>
-      <div>{props.user?.name}</div>
-      <div>{props.user?.email}</div>
-    </>
-  );
-};
+import { makeSelectUser, selectUserList } from 'app/store/global/selector';
+import UserInfo from 'app/components/UserInfo';
+import UserList from 'app/components/UserList';
+import UserButtons from 'app/components/UserButtons';
 
-const Component: React.FC = (props) => {
+const Component: React.FC = () => {
   const dispatch = useDispatch();
   const selectUser = useMemo(makeSelectUser, []);
   const user = useSelector(selectUser);
   const onFetchUser = (id) => dispatch(UserAction.userFetchRequest(id));
+  const users = useSelector(selectUserList);
   return (
     <>
       <h1>Profile</h1>
       <UserButtons onFetch={onFetchUser} />
-      <UserInfo user={user} comp="UserInfo" />
+      {user && <UserInfo user={user} />}
+      <hr />
+      <h1>Users</h1>
+      <Button onClick={() => dispatch(UserAction.userListFetchRequest())}>
+        Get Users
+      </Button>
+      <UserList users={users} />
     </>
   );
 };

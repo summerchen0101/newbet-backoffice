@@ -1,5 +1,3 @@
-import * as actionTypes from './fetchUser/constants';
-
 export interface User {
   name: string;
   email: string;
@@ -15,4 +13,5 @@ export interface GlobalState {
   menu: MenuItem[];
   breadcrumb: string[];
   user: null | User;
+  users: User[];
 }

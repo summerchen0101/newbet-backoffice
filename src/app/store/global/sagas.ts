@@ -1,3 +1,3 @@
-import fetchUserSaga from './fetchUser/saga';
+import fetchUserSaga from './User/saga';
 
 export default [...fetchUserSaga];
