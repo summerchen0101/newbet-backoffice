@@ -5,20 +5,27 @@ const selectGlobalState = (state: RootState) => state.global;
 
 export const selectMenu = createSelector(
   selectGlobalState,
-  (state) => state.menu,
+  (state) => state.menuStore.menu,
+);
+export const selectLoggedIn = createSelector(
+  selectGlobalState,
+  (state) => state.basic.loggedIn,
 );
 export const selectBreadcrumb = createSelector(
   selectGlobalState,
-  (state) => state.breadcrumb,
+  (state) => state.basic.breadcrumb,
+);
+export const selectTodos = createSelector(
+  selectGlobalState,
+  (state) => state.basic.todos,
 );
 
 const makeSelectUser = () =>
-  createSelector(selectGlobalState, (globalState) => globalState.user);
+  createSelector(selectGlobalState, (state) => state.userStore.user);
 
 const selectUserList = createSelector(
   selectGlobalState,
-  (globalState) => globalState.users,
+  (state) => state.userStore.users,
 );
-createSelector(selectGlobalState, (globalState) => globalState.users);
 
 export { selectGlobalState, makeSelectUser, selectUserList };

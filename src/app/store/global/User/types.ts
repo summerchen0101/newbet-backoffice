@@ -39,3 +39,13 @@ export type UserActionType =
   | UserListFetchRequestAction
   | UserListFetchSuccessAction
   | UserListFetchFailedAction;
+
+interface User {
+  name: string;
+  email: string;
+}
+
+export interface UserState {
+  user: null | User;
+  users: User[];
+}
