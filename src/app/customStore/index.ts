@@ -1,21 +1,26 @@
+/* eslint-disable @typescript-eslint/no-empty-function */
 import React from 'react';
-import produce from 'immer';
+import * as UserModule from './user/reducer';
+import * as TodoModule from './todos/reducer';
+import { combineReducers } from 'redux';
 
 type ActionType = {
   type: string;
   [s: string]: any;
 };
 
-export const initState = {
-  user: { name: '' },
-  // eslint-disable-next-line @typescript-eslint/no-empty-function
+export const rootReducer = combineReducers({
+  user: UserModule.reducer,
+  todos: TodoModule.reducer,
+});
+
+export const rootState = {
+  user: UserModule.state,
+  todos: TodoModule.state,
+};
+
+export const contextState = {
+  store: rootState,
   mutate: (action: ActionType) => {},
 };
-export const CustomStore = React.createContext(initState);
-
-export const rootReducer = (state: typeof initState, action) =>
-  produce(state, (draft) => {
-    if (action.type === 'UPDATE_USER_NAME') {
-      draft.user.name = action.name;
-    }
-  });
+export const CustomStore = React.createContext(contextState);
