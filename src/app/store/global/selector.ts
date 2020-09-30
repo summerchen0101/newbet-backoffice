@@ -7,9 +7,14 @@ export const selectMenu = createSelector(
   selectGlobalState,
   (state) => state.menu,
 );
+export const selectBreadcrumb = createSelector(
+  selectGlobalState,
+  (state) => state.breadcrumb,
+);
 
 const makeSelectUser = () =>
   createSelector(selectGlobalState, (globalState) => globalState.user);
+
 const selectUserList = createSelector(
   selectGlobalState,
   (globalState) => globalState.users,

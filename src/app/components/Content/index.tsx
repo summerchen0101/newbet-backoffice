@@ -1,34 +1,30 @@
-import { Layout, Breadcrumb } from 'antd';
+import { Layout } from 'antd';
 import React from 'react';
-import { Switch, Route } from 'react-router-dom';
 import Home from 'app/containers/HomePage';
 import Profile from 'app/containers/Profile';
-import { connect } from 'react-redux';
-import { RootState } from 'app/store';
 import Board from './Board';
+import { useSelector } from 'react-redux';
+import { selectBreadcrumb } from 'app/store/global/selector';
+import Breadcrumb from 'app/components/Breadcrumb';
+import RouterViews from 'app/components/RouterViews';
 
-const mapStateToProps = (state: RootState) => ({
-  breadcrumb: state.global.breadcrumb,
-});
+const routerViews = [
+  { path: '/home', component: Home },
+  { path: '/profile', component: Profile },
+];
 
 const { Content } = Layout;
 
-const Component: React.FC<ReturnType<typeof mapStateToProps>> = (props) => {
+const Component: React.FC = (props) => {
+  const breadcrumb = useSelector(selectBreadcrumb);
   return (
     <Content style={{ margin: '0 16px' }}>
-      <Breadcrumb style={{ margin: '16px 0' }}>
-        {props.breadcrumb.map((label) => (
-          <Breadcrumb.Item key={label}>{label}</Breadcrumb.Item>
-        ))}
-      </Breadcrumb>
+      <Breadcrumb breadcrumb={breadcrumb} />
       <Board>
-        <Switch>
-          <Route path="/home" component={Home} />
-          <Route path="/profile" component={Profile} />
-        </Switch>
+        <RouterViews routerViews={routerViews} />
       </Board>
     </Content>
   );
 };
 
-export default connect(mapStateToProps)(Component);
+export default Component;
