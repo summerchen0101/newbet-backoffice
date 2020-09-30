@@ -6,8 +6,6 @@ import Profile from 'app/containers/Profile';
 import { connect } from 'react-redux';
 import { RootState } from 'app/store';
 import Board from './Board';
-import A from '../A';
-import { ThemeProvider } from 'styled-components';
 
 const mapStateToProps = (state: RootState) => ({
   breadcrumb: state.global.breadcrumb,
@@ -23,7 +21,6 @@ const Component: React.FC<ReturnType<typeof mapStateToProps>> = (props) => {
           <Breadcrumb.Item key={label}>{label}</Breadcrumb.Item>
         ))}
       </Breadcrumb>
-      <A>hello!</A>
       <Board>
         <Switch>
           <Route path="/home" component={Home} />
