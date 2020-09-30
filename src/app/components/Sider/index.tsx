@@ -7,21 +7,9 @@ import {
   TeamOutlined,
   UserOutlined,
 } from '@ant-design/icons';
-import produce from 'immer';
-import { connect } from 'react-redux';
-import { RootState } from 'store/index';
 import Logo from './logo';
-
-const mapStateToProps = (state: RootState) => ({
-  menu: state.global.menu,
-});
-
-type IState = {
-  collapsed: boolean;
-};
-const initState: IState = {
-  collapsed: false,
-};
+import { selectMenu } from 'app/store/global/selector';
+import { useSelector } from 'react-redux';
 
 const iconMap = {
   user: UserOutlined,
@@ -30,9 +18,11 @@ const iconMap = {
   pieChart: PieChartOutlined,
 };
 
-const Component: React.FC<ReturnType<typeof mapStateToProps>> = (props) => {
-  const [state, setState] = useState(initState);
-  const menuRoop = props.menu.map((m, m_i) => {
+const Component: React.FC = (props) => {
+  const [collapsed, toggleCollapsed] = useState(false);
+  const menu = useSelector(selectMenu);
+
+  const menuRoop = menu.map((m, m_i) => {
     const IconName = iconMap[m.icon ?? 'user'];
     if (!m.child) {
       return (
@@ -50,19 +40,9 @@ const Component: React.FC<ReturnType<typeof mapStateToProps>> = (props) => {
       );
     }
   });
-  const onCollapse = (collapsed) => {
-    setState(
-      produce(state, (draft) => {
-        draft.collapsed = collapsed;
-      }),
-    );
-  };
+  const onCollapse = (collapsed) => toggleCollapsed(!collapsed);
   return (
-    <Layout.Sider
-      collapsible
-      collapsed={state.collapsed}
-      onCollapse={onCollapse}
-    >
+    <Layout.Sider collapsible collapsed={collapsed} onCollapse={onCollapse}>
       <Logo />
       <Menu theme="dark" defaultSelectedKeys={['1']} mode="inline">
         {menuRoop}
@@ -70,4 +50,4 @@ const Component: React.FC<ReturnType<typeof mapStateToProps>> = (props) => {
     </Layout.Sider>
   );
 };
-export default connect(mapStateToProps)(Component);
+export default Component;
