@@ -1,7 +1,7 @@
 import { Layout } from 'antd';
 import Wrap from './Wrap';
 import React from 'react';
-import Sidebar from 'app/components/Sider';
+import Sidebar from 'app/components/Sidebar';
 import Header from 'app/components/Header';
 import Content from 'app/components/Content';
 import Footer from 'app/components/Footer';
