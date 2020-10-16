@@ -2,7 +2,7 @@ FROM node:alpine as builder
 RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app
 COPY package.json /usr/src/app
-RUN yarn install
+RUN yarn install --only=production
 COPY . /usr/src/app
 RUN yarn build
 
