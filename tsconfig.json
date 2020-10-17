@@ -2,8 +2,7 @@
   "compilerOptions": {
     "baseUrl": "./",
     "paths": {
-      "store/*": ["src/app/store/*"],
-      "app/*": ["src/app/*"],
+      "@/*": ["src/*"]
     },
     "sourceMap": true,
     "module": "commonjs",
