@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect, useDispatch } from 'react-redux'
-import { addTodo } from '../store/sample/actions'
+import { addTodo } from '@/store/sample/actions'
 
 const AddTodo: React.FC = () => {
   let input;

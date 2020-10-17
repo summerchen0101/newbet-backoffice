@@ -1,6 +1,6 @@
 import { connect, useDispatch, useSelector } from 'react-redux'
-import { setVisibilityFilter } from '../store/sample/actions'
-import Link from '../components/Link'
+import { setVisibilityFilter } from '@/store/sample/actions'
+import Link from '@/components/Sample/Link'
 import React from 'react'
 import {RootState} from '@/store'
 

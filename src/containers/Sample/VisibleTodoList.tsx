@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux'
-import { toggleTodo } from '../store/sample/actions'
-import TodoList from '../components/TodoList'
-import { VisibilityFilters } from '../store/sample/actions'
+import { toggleTodo } from '@/store/sample/actions'
+import TodoList from '@/components/Sample/TodoList'
+import { VisibilityFilters } from '@/store/sample/actions'
 import React from 'react'
 import { RootState } from '@/store'
 
