@@ -2,7 +2,7 @@ import React, { useContext } from 'react'
 import { Layout, Menu } from 'antd';
 import {
   UserOutlined,
-  ProfileOutlined,
+  NotificationOutlined,
   DashboardOutlined,
   FileSearchOutlined,
   UsergroupAddOutlined,
@@ -18,7 +18,7 @@ const { Sider } = Layout;
 
 const menu = [
   {path: '/sample', label: '範例頁', iconComp: DashboardOutlined},
-  {path: '/news', label: '公告', iconComp: ProfileOutlined},
+  {path: '/news', label: '公告', iconComp: NotificationOutlined},
   {path: '/account', label: '帳號管理', iconComp: UserOutlined, children: [
     {path: mPath.ACCOUNT_MANAGER, label: '管理員管理'},
     {path: mPath.ACCOUNT_ONLINE, label: '在線管理'},
@@ -45,10 +45,12 @@ const menu = [
 const Sidebar: React.FC= () => {
   const {collapsed} = useContext(DashboardContext)
   const {pathname} = useLocation()
+  let openKeys= ['/' + pathname.split('/')[1]]
+  let selectKey = [pathname]
   return (
     <Sider trigger={null} collapsible collapsed={collapsed}>
       <div className="logo" />
-      <Menu theme="dark" mode="inline" defaultSelectedKeys={[pathname]}>
+      <Menu theme="dark" mode="inline" defaultSelectedKeys={selectKey} defaultOpenKeys={openKeys}>
         {menu.map((m) => MenuWithSubMenu(m))}
       </Menu>
     </Sider>
