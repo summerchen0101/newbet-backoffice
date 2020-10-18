@@ -8,7 +8,7 @@ import Home from '@/pages/Home';
 import Login from '@/pages/Login';
 import News from '@/pages/News';
 import Sample from '@/pages/Sample';
-import RouteWithSubRoutes from '@/utils/RouteWithWubRoutes'
+import RouteWithSubRoutes from '@/utils/RouteWithSubRoutes'
 
 const rootRoutes = [
   {path: '/login', component: Login},
