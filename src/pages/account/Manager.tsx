@@ -3,7 +3,7 @@ import Dashboard from '@/components/Dashboard'
 
 const Component: React.FC = () => (
   <Dashboard>
-    <h1>News</h1>
+    <h1>管理員管理</h1>
   </Dashboard>
 )
 

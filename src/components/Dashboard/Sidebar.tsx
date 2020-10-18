@@ -12,6 +12,7 @@ import './style.css';
 import {Link, useLocation, useRouteMatch} from 'react-router-dom';
 import DashboardContext from '@/contexts/DashboardContext'
 import MenuWithSubMenu from '@/utils/MenuWithSubMenu'
+import * as mPath from '@/lib/menuPath'
 
 const { Sider } = Layout;
 
@@ -19,8 +20,8 @@ const menu = [
   {path: '/sample', label: '範例頁', iconComp: DashboardOutlined},
   {path: '/news', label: '公告', iconComp: ProfileOutlined},
   {path: '/account', label: '帳號管理', iconComp: UserOutlined, children: [
-    {path: '/manager', label: '管理員管理'},
-    {path: '/online', label: '在線管理'},
+    {path: mPath.ACCOUNT_MANAGER, label: '管理員管理'},
+    {path: mPath.ACCOUNT_ONLINE, label: '在線管理'},
   ]},
   {path: '/level', label: '層級管理', iconComp: UsergroupAddOutlined, children: [
     {path: '/account-setting', label: '帳號設定'},
