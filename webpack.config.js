@@ -8,13 +8,14 @@ module.exports = {
   plugins: [
     new CaseSensitivePathsPlugin(),
     new CleanWebpackPlugin({
-      cleanAfterEveryBuildPatterns: ['public/build'],
+      cleanAfterEveryBuildPatterns: ['public'],
     }),
     new HtmlWebpackPlugin({
       template: 'src/templates/index.html',
     }),
   ],
   output: {
+    publicPath: '/',
     path: __dirname + '/public',
     filename: 'build/[name].[contenthash].js',
   },
