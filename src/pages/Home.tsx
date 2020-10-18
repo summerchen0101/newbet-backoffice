@@ -1,7 +1,10 @@
 import React from 'react'
+import Dashboard from '@/components/Dashboard'
 
 const Component: React.FC = () => (
-  <h1>Home</h1>
+  <Dashboard>
+    <h1>Home</h1>
+  </Dashboard>
 )
 
 export default Component

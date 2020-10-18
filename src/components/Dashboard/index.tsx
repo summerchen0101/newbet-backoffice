@@ -14,15 +14,7 @@ import RouteWithSubRoutes from '@/utils/RouteWithWubRoutes'
 
 const { Header, Sider, Content } = Layout;
 
-type Route = {
-  path: string;
-  component: React.ElementType
-}
-type Props = {
-  routes: Route[]
-}
-
-const Component: React.FC<Props> = ({children, routes}) => {
+const Component: React.FC = ({children}) => {
   const [collapsed, changeCollapsed] = useState(false)
   return (
     <Layout className="dashboard">
@@ -55,9 +47,7 @@ const Component: React.FC<Props> = ({children, routes}) => {
             minHeight: 280,
           }}
         >
-          {routes.map((route, i) => (
-          <RouteWithSubRoutes key={i} {...route} />
-        ))}
+          {children}
         </Content>
       </Layout>
     </Layout>

@@ -7,18 +7,12 @@ import {
 import Home from '@/pages/Home';
 import News from '@/pages/News';
 import Sample from '@/pages/Sample';
-import Dashboard from '@/components/Dashboard'
 import RouteWithSubRoutes from '@/utils/RouteWithWubRoutes'
 
 const rootRoutes = [
+  {path: '/home', component: Home},
+  {path: '/news', component: News},
   {path: '/sample', component: Sample},
-  { path: '/',
-    component: Dashboard,
-    routes: [
-      {path: '/home', component: Home},
-      {path: '/news', component: News},
-    ]
-  },
 ]
 
 const App: React.FC = () => {
