@@ -1,10 +1,6 @@
 import React, { useState } from 'react'
 
-import { Layout } from 'antd';
-import {
-  MenuUnfoldOutlined,
-  MenuFoldOutlined,
-} from '@ant-design/icons';
+import { Layout, PageHeader } from 'antd';
 import './style.css';
 import Sidebar from './Sidebar'
 import Header from './Header'
