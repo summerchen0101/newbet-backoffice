@@ -21,7 +21,7 @@ const menu = [
   {path: '/news', label: '公告', iconComp: NotificationOutlined},
   {path: '/account', label: '帳號管理', iconComp: UserOutlined, children: [
     {path: mPath.ACCOUNT_MANAGER, label: '管理員管理'},
-    {path: mPath.ACCOUNT_ONLINE, label: '在線管理'},
+    {path: mPath.ACCOUNT_ONLINE, label: '在線人員'},
   ]},
   {path: '/level', label: '層級管理', iconComp: UsergroupAddOutlined, children: [
     {path: '/account-setting', label: '帳號設定'},
