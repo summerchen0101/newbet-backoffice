@@ -1,9 +1,9 @@
-import React, {useContext, useEffect, useReducer} from 'react'
-import { Table, Space, Select } from 'antd';
+import React, {useEffect} from 'react'
+import { Table, Space } from 'antd';
 import A from '@/components/A'
 import { CheckOutlined } from '@ant-design/icons'
-import {gotTableData} from '@/store/slices/manager'
-import {getFilteredData} from '../selectors'
+import {gotTableData} from '@/store/manager/reducer'
+import {getFilteredData} from '@/store/manager/selectors'
 import { useSelector, useDispatch } from 'react-redux';
 const columns = [
   {

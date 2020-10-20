@@ -26,5 +26,10 @@ const counterSlice = createSlice({
   },
 })
 
-export const { gotTableData, changeRoleSearch, searchRole, getRoleOption } = counterSlice.actions
+export const {
+  gotTableData,
+  changeRoleSearch,
+  searchRole,
+  getRoleOption
+} = counterSlice.actions
 export default counterSlice.reducer

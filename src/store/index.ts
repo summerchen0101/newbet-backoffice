@@ -1,7 +1,5 @@
-import { combineReducers } from 'redux'
 import { sampleReducer } from './sample/reducers'
-// import managerReducer from '@/pages/account/Manager/reducer'
-import managerReducer from './slices/manager'
+import managerReducer from './manager/reducer'
 import { configureStore } from '@reduxjs/toolkit'
 
 const reducer = {
