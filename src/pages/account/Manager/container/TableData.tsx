@@ -5,6 +5,7 @@ import { CheckOutlined } from '@ant-design/icons'
 import reducer from '../reducer'
 import context from '../context'
 import {getFilteredData} from '../selectors'
+import { useSelector, useDispatch } from 'react-redux';
 const columns = [
   {
     title: '#',
@@ -82,8 +83,8 @@ const data = [
 ];
 
 const Component: React.FC = () => {
-  const {state, dispatch} = useContext(context)
-  const filterdData = getFilteredData(state)
+  const dispatch = useDispatch()
+  const filterdData = useSelector(getFilteredData)
   useEffect(() => {
     dispatch({type: 'GOT_TABLE_DATA', list: data})
   }, [])

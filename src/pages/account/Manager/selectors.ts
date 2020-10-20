@@ -1,9 +1,19 @@
+import { RootState } from '@/store';
 import {createSelector} from 'reselect';
-import {initState} from './reducer'
 
-const getTableData = (state = initState) => state.tableData
-const getRoleSearch = (state = initState) => state.searchRole
-export const getRoleOptions = (state = initState) => state.roleOptions
+const getManager = (state: RootState) => state.manager
+const getTableData = createSelector(
+  getManager,
+  (manager) => manager.tableData
+)
+const getRoleSearch = createSelector(
+  getManager,
+  (manager) => manager.searchRole
+)
+export const getRoleOptions = createSelector(
+  getManager,
+  (manager) => manager.roleOptions
+)
 
 export const getFilteredData =
   createSelector(
