@@ -3,7 +3,7 @@ import { Table, Space } from 'antd';
 import A from '@/components/A'
 import { CheckOutlined } from '@ant-design/icons'
 import {gotTableData} from '@/store/manager/reducer'
-import {getFilteredData} from '@/store/manager/selectors'
+import { selectFilteredData} from '@/store/manager/selectors'
 import { useSelector, useDispatch } from 'react-redux';
 const columns = [
   {
@@ -83,7 +83,7 @@ const data = [
 
 const Component: React.FC = () => {
   const dispatch = useDispatch()
-  const filterdData = useSelector(getFilteredData)
+  const filterdData = useSelector(selectFilteredData)
   useEffect(() => {
     dispatch(gotTableData(data))
   }, [])

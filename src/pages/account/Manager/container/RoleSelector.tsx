@@ -1,8 +1,8 @@
 import React, { useContext, useEffect, useReducer } from 'react'
 
 import { Select } from 'antd';
-import {getRoleOption, changeRoleSearch} from '@/store/manager/reducer'
-import {getRoleOptions} from '@/store/manager/selectors'
+import {gotRoleOptions, changeRoleSearch} from '@/store/manager/reducer'
+import {selectRoleOptions} from '@/store/manager/selectors'
 import { useDispatch, useSelector } from 'react-redux';
 
 
@@ -16,9 +16,9 @@ const roleList = [
 
 const Component: React.FC = () => {
   const dispatch = useDispatch()
-  const roleOptions = useSelector(getRoleOptions)
+  const roleOptions = useSelector(selectRoleOptions)
   useEffect(() => {
-    dispatch(getRoleOption(roleList))
+    dispatch(gotRoleOptions(roleList))
   }, [])
   const onChange = (value) => dispatch(changeRoleSearch(value))
   return (

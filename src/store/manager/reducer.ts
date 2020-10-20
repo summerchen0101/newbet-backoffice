@@ -20,7 +20,7 @@ const counterSlice = createSlice({
       state.searchRole = action.payload
       state.tableData = state.tableData.map(d => d.role.includes(state.searchRole))
     },
-    getRoleOption(state, action: PayloadAction<any[]>) {
+    gotRoleOptions(state, action: PayloadAction<any[]>) {
       state.roleOptions = action.payload
     },
   },
@@ -30,6 +30,6 @@ export const {
   gotTableData,
   changeRoleSearch,
   searchRole,
-  getRoleOption
+  gotRoleOptions
 } = counterSlice.actions
 export default counterSlice.reducer
