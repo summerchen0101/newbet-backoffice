@@ -1,10 +1,110 @@
 import React from 'react'
 import Dashboard from '@/components/Dashboard'
 
-const Component: React.FC = () => (
-  <Dashboard>
-    <h1>管理員管理</h1>
-  </Dashboard>
-)
+import { Table, Tag, Space, Button } from 'antd';
+import PageHeader from '@/components/PageHeader'
+import A from '@/components/A'
+import { CheckOutlined } from '@ant-design/icons'
+
+const columns = [
+  {
+    title: '#',
+    dataIndex: 'num',
+    key: 'num',
+    width: '10%',
+  },
+  {
+    title: '站台',
+    dataIndex: 'branch',
+    key: 'branch',
+  },
+  {
+    title: '帳號',
+    dataIndex: 'account',
+    key: 'account',
+  },
+  {
+    title: '暱稱',
+    dataIndex: 'nick',
+    key: 'nick',
+  },
+  {
+    title: '角色',
+    dataIndex: 'role',
+    key: 'role',
+  },
+  {
+    title: '停用',
+    dataIndex: 'stop',
+    key: 'stop',
+    render: stop => stop && <CheckOutlined style={{color: "red"}}  />
+  },
+  {
+    title: '編輯',
+    key: 'action',
+    render: (text, record) => (
+      <Space size="middle">
+        <a className="text-danger">修改</a>
+        <A type="danger">刪除</A>
+      </Space>
+    ),
+    width: '15%',
+  },
+];
+
+const data = [
+  {
+    key: 1,
+    num: 1,
+    branch: "站台名稱",
+    account: "summer",
+    nick: "夏天",
+    role: "網站管理員",
+    stop: false,
+  },
+  {
+    key: 2,
+    num: 2,
+    branch: "站台名稱",
+    account: "benson99",
+    nick: "Benson",
+    role: "控盤人員",
+    stop: true,
+  },
+  {
+    key: 3,
+    num: 3,
+    branch: "站台名稱",
+    account: "gogoro123",
+    nick: "Gogoro",
+    role: "MIS工程師",
+    stop: false,
+  },
+];
+
+const routes = [
+  {
+    path: '/home',
+    breadcrumbName: '首頁',
+  },
+  {
+    path: '',
+    breadcrumbName: '帳號管理',
+  },
+  {
+    path: '/account/manager',
+    breadcrumbName: '管理員管理',
+  },
+];
+
+
+const Component: React.FC = () => {
+  return (
+    <Dashboard>
+      <PageHeader title="管理員管理" breadcrumb={{ routes }} />
+      <Table columns={columns} dataSource={data} size="small" />
+    </Dashboard>
+  )
+}
 
 export default Component

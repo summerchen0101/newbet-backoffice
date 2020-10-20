@@ -72,11 +72,11 @@ const data = [
 
 const routes = [
   {
-    path: 'home',
+    path: '/home',
     breadcrumbName: '首頁',
   },
   {
-    path: 'news',
+    path: '/news',
     breadcrumbName: '公告',
   },
 ];
