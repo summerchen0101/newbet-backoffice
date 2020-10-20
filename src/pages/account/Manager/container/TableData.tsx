@@ -2,8 +2,7 @@ import React, {useContext, useEffect, useReducer} from 'react'
 import { Table, Space, Select } from 'antd';
 import A from '@/components/A'
 import { CheckOutlined } from '@ant-design/icons'
-import reducer from '../reducer'
-import context from '../context'
+import {gotTableData} from '@/store/slices/manager'
 import {getFilteredData} from '../selectors'
 import { useSelector, useDispatch } from 'react-redux';
 const columns = [
@@ -86,7 +85,7 @@ const Component: React.FC = () => {
   const dispatch = useDispatch()
   const filterdData = useSelector(getFilteredData)
   useEffect(() => {
-    dispatch({type: 'GOT_TABLE_DATA', list: data})
+    dispatch(gotTableData(data))
   }, [])
   return (
     <Table columns={columns} dataSource={filterdData} size="small" />
