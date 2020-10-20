@@ -1,11 +1,10 @@
-import React from 'react'
-import Dashboard from '@/components/Dashboard'
-
-import { Table, Tag, Space, Button } from 'antd';
-import PageHeader from '@/components/PageHeader'
+import React, {useContext, useEffect, useReducer} from 'react'
+import { Table, Space, Select } from 'antd';
 import A from '@/components/A'
 import { CheckOutlined } from '@ant-design/icons'
-
+import reducer from '../reducer'
+import context from '../context'
+import {getFilteredData} from '../selectors'
 const columns = [
   {
     title: '#',
@@ -82,28 +81,14 @@ const data = [
   },
 ];
 
-const routes = [
-  {
-    path: '/home',
-    breadcrumbName: '首頁',
-  },
-  {
-    path: '',
-    breadcrumbName: '帳號管理',
-  },
-  {
-    path: '/account/manager',
-    breadcrumbName: '管理員管理',
-  },
-];
-
-
 const Component: React.FC = () => {
+  const {state, dispatch} = useContext(context)
+  const filterdData = getFilteredData(state)
+  useEffect(() => {
+    dispatch({type: 'GOT_TABLE_DATA', list: data})
+  }, [])
   return (
-    <Dashboard>
-      <PageHeader title="管理員管理" breadcrumb={{ routes }} />
-      <Table columns={columns} dataSource={data} size="small" />
-    </Dashboard>
+    <Table columns={columns} dataSource={filterdData} size="small" />
   )
 }
 
