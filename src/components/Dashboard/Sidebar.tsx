@@ -49,7 +49,9 @@ const Sidebar: React.FC= () => {
   let selectKey = [pathname]
   return (
     <Sider trigger={null} collapsible collapsed={collapsed}>
-      <div className="logo" />
+      <div className="logo">
+        {!collapsed ? '新體育後台' : '體'}
+      </div>
       <Menu theme="dark" mode="inline" defaultSelectedKeys={selectKey} defaultOpenKeys={openKeys}>
         {menu.map((m) => MenuWithSubMenu(m))}
       </Menu>
