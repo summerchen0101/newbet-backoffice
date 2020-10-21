@@ -18,7 +18,6 @@ const Component: React.FC<{title: string, breadcrumb: BreadcrumbProps}> = ({titl
   const history = useHistory()
   return (
     <PageHeader
-
       style={{padding: 0, paddingBottom: 20}}
       onBack={() => history.goBack()}
       title={title}
