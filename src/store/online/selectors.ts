@@ -1,24 +1,23 @@
 import { RootState } from '@/store';
-import {createSelector} from 'reselect';
+import { createSelector } from 'reselect';
 
-const selectManager = (state: RootState) => state.online
+const selectManager = (state: RootState) => state.online;
 const selectTableData = createSelector(
   selectManager,
-  (manager) => manager.tableData
-)
+  (manager) => manager.tableData,
+);
 const selectRoleSearch = createSelector(
   selectManager,
-  (manager) => manager.searchRole
-)
+  (manager) => manager.searchRole,
+);
 export const selectRoleOptions = createSelector(
   selectManager,
-  (manager) => manager.roleOptions
-)
+  (manager) => manager.roleOptions,
+);
 
-export const selectFilteredData =
-  createSelector(
-    [selectTableData, selectRoleSearch],
-    (originList, role) => {
-      return originList.filter(t => !role || t.roleValue === role)
-    }
-  )
+export const selectFilteredData = createSelector(
+  [selectTableData, selectRoleSearch],
+  (originList, role) => {
+    return originList.filter((t) => !role || t.roleValue === role);
+  },
+);

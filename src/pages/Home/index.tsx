@@ -1,8 +1,8 @@
-import React from 'react'
-import Dashboard from '@/components/Dashboard'
+import React from 'react';
+import Dashboard from '@/components/Dashboard';
 import { Card, Col, Row } from 'antd';
-import NumberBox from './NumberBox'
-import ResultBox from './ResultBox'
+import NumberBox from './NumberBox';
+import ResultBox from './ResultBox';
 
 const Component: React.FC = () => (
   <Dashboard>
@@ -22,8 +22,6 @@ const Component: React.FC = () => (
       </Col>
     </Row>
   </Dashboard>
-)
+);
 
-
-
-export default Component
+export default Component;

@@ -1,25 +1,23 @@
-import React from "react";
+import React from 'react';
 import { Menu } from 'antd';
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 const { SubMenu } = Menu;
 
 export default function MenuWithSubMenu(menu) {
-  if(menu.children) {
+  if (menu.children) {
     return (
       <SubMenu key={menu.path} icon={<menu.iconComp />} title={menu.label}>
-        {menu.children.map(m => MenuWithSubMenu(m))}
+        {menu.children.map((m) => MenuWithSubMenu(m))}
       </SubMenu>
-    )
-  }
-  else {
+    );
+  } else {
     return (
       <Menu.Item key={menu.path} icon={menu.iconComp && <menu.iconComp />}>
         <Link to={menu.path}>{menu.label}</Link>
       </Menu.Item>
-    )
+    );
   }
 }
-
 
 // export default function RouteWithSubRoutes(route) {
 //   return (

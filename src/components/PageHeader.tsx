@@ -1,7 +1,7 @@
-import React from 'react'
+import React from 'react';
 
-import {PageHeader} from 'antd'
-import { useHistory, Link } from 'react-router-dom'
+import { PageHeader } from 'antd';
+import { useHistory, Link } from 'react-router-dom';
 import { BreadcrumbProps } from 'antd/lib/breadcrumb';
 import { Route } from 'antd/lib/breadcrumb/Breadcrumb';
 
@@ -14,16 +14,19 @@ function itemRender(route, params, routes, paths) {
   );
 }
 
-const Component: React.FC<{title: string, breadcrumb: BreadcrumbProps}> = ({title, breadcrumb}) => {
-  const history = useHistory()
+const Component: React.FC<{ title: string; breadcrumb: BreadcrumbProps }> = ({
+  title,
+  breadcrumb,
+}) => {
+  const history = useHistory();
   return (
     <PageHeader
-      style={{padding: 0, paddingBottom: 20}}
+      style={{ padding: 0, paddingBottom: 20 }}
       onBack={() => history.goBack()}
       title={title}
-      breadcrumb={{itemRender, ...breadcrumb}}
+      breadcrumb={{ itemRender, ...breadcrumb }}
     />
-  )
-}
+  );
+};
 
-export default Component
+export default Component;

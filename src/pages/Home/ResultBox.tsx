@@ -1,8 +1,8 @@
-import React from 'react'
-import styled from 'styled-components'
-import {Card, Row, Col} from 'antd'
-import { CardProps } from 'antd/lib/card'
-import ResultBoxItem from './ResultBoxItem'
+import React from 'react';
+import styled from 'styled-components';
+import { Card, Row, Col } from 'antd';
+import { CardProps } from 'antd/lib/card';
+import ResultBoxItem from './ResultBoxItem';
 
 const ResultBox = styled(Card)`
   height: 180px;
@@ -10,9 +10,9 @@ const ResultBox = styled(Card)`
   display: flex;
   align-items: center;
   justify-center: center;
-`
+`;
 
-const Component: React.FC<CardProps>= (props) => (
+const Component: React.FC<CardProps> = (props) => (
   <ResultBox {...props}>
     <Row gutter={32}>
       <Col span={24}>
@@ -24,6 +24,6 @@ const Component: React.FC<CardProps>= (props) => (
       <ResultBoxItem span={6} title="上線人數" num={10} />
     </Row>
   </ResultBox>
-)
+);
 
-export default Component
+export default Component;

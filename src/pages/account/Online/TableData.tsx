@@ -1,9 +1,9 @@
-import React, {useEffect} from 'react'
+import React, { useEffect } from 'react';
 import { Table, Space } from 'antd';
-import {gotTableData} from '@/store/online/reducer'
-import { selectFilteredData} from '@/store/online/selectors'
+import { gotTableData } from '@/store/online/reducer';
+import { selectFilteredData } from '@/store/online/selectors';
 import { useSelector, useDispatch } from 'react-redux';
-import ColorBox from '@/components/ColorBox'
+import ColorBox from '@/components/ColorBox';
 
 const columns = [
   {
@@ -43,9 +43,11 @@ const columns = [
     dataIndex: 'danger',
     render: (list) => (
       <Space size="small">
-        { list && list.length > 0
-          ? list.map((t, i) => <ColorBox key={i} color={t} />)
-          : <a className="text-danger">設定</a> }
+        {list && list.length > 0 ? (
+          list.map((t, i) => <ColorBox key={i} color={t} />)
+        ) : (
+          <a className="text-danger">設定</a>
+        )}
       </Space>
     ),
     width: '15%',
@@ -56,36 +58,34 @@ const data = [
   {
     key: 1,
     num: 1,
-    account: "summer",
-    nick: "夏天",
-    role: "十級代理",
+    account: 'summer',
+    nick: '夏天',
+    role: '十級代理',
     roleValue: 10,
-    loginTime: "2018-12-18 16:42:44",
-    ip: "192.168.111.26",
+    loginTime: '2018-12-18 16:42:44',
+    ip: '192.168.111.26',
     danger: ['#f5222d', '#fadb14'],
   },
   {
     key: 2,
     num: 2,
-    account: "sunny123",
-    nick: "Sunny",
-    role: "八級代理",
+    account: 'sunny123',
+    nick: 'Sunny',
+    role: '八級代理',
     roleValue: 8,
-    loginTime: "2018-12-18 16:42:44",
-    ip: "192.168.111.26",
+    loginTime: '2018-12-18 16:42:44',
+    ip: '192.168.111.26',
     danger: [],
   },
 ];
 
 const Component: React.FC = () => {
-  const dispatch = useDispatch()
-  const filterdData = useSelector(selectFilteredData)
+  const dispatch = useDispatch();
+  const filterdData = useSelector(selectFilteredData);
   useEffect(() => {
-    dispatch(gotTableData(data))
-  }, [])
-  return (
-    <Table columns={columns} dataSource={filterdData} size="small" />
-  )
-}
+    dispatch(gotTableData(data));
+  }, []);
+  return <Table columns={columns} dataSource={filterdData} size="small" />;
+};
 
-export default Component
+export default Component;

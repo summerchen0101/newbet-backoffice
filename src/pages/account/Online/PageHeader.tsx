@@ -1,5 +1,5 @@
-import React from 'react'
-import PageHeader from '@/components/PageHeader'
+import React from 'react';
+import PageHeader from '@/components/PageHeader';
 
 const routes = [
   {
@@ -16,11 +16,8 @@ const routes = [
   },
 ];
 
-
 const Component: React.FC = () => {
-  return (
-    <PageHeader title="在線人員" breadcrumb={{ routes }} />
-  )
-}
+  return <PageHeader title="在線人員" breadcrumb={{ routes }} />;
+};
 
-export default Component
+export default Component;
