@@ -1,11 +1,9 @@
-import React from 'react'
-import Dashboard from '@/components/Dashboard'
-
-import { Table, Space, Select } from 'antd';
-import PageHeader from '@/components/PageHeader'
+import React, {useEffect} from 'react'
+import { Table, Space } from 'antd';
+import {gotTableData} from '@/store/online/reducer'
+import { selectFilteredData} from '@/store/online/selectors'
+import { useSelector, useDispatch } from 'react-redux';
 import ColorBox from '@/components/ColorBox'
-
-const { Option } = Select;
 
 const columns = [
   {
@@ -61,6 +59,7 @@ const data = [
     account: "summer",
     nick: "夏天",
     role: "十級代理",
+    roleValue: 10,
     loginTime: "2018-12-18 16:42:44",
     ip: "192.168.111.26",
     danger: ['#f5222d', '#fadb14'],
@@ -71,52 +70,21 @@ const data = [
     account: "sunny123",
     nick: "Sunny",
     role: "八級代理",
+    roleValue: 8,
     loginTime: "2018-12-18 16:42:44",
     ip: "192.168.111.26",
     danger: [],
   },
 ];
 
-const routes = [
-  {
-    path: '/home',
-    breadcrumbName: '首頁',
-  },
-  {
-    path: '',
-    breadcrumbName: '帳號管理',
-  },
-  {
-    path: '/account/manager',
-    breadcrumbName: '在線人員',
-  },
-];
-
-const roleList = [
-  {value: '6級代理'},
-  {value: '7級代理'},
-  {value: '8級代理'},
-  {value: '9級代理'},
-  {value: '10級代理'},
-]
-
 const Component: React.FC = () => {
-  const onChange = value => console.log(`selected ${value}`);
+  const dispatch = useDispatch()
+  const filterdData = useSelector(selectFilteredData)
+  useEffect(() => {
+    dispatch(gotTableData(data))
+  }, [])
   return (
-    <Dashboard>
-      <PageHeader title="在線人員" breadcrumb={{ routes }} />
-      <Select
-          showSearch
-          style={{ width: 200 }}
-          placeholder="全部"
-          onChange={onChange}
-      >
-        {roleList.map(opt => (
-          <Option key={opt.value} value={opt.value}>{ opt.value }</Option>
-        ))}
-      </Select>
-      <Table columns={columns} dataSource={data} size="small" />
-    </Dashboard>
+    <Table columns={columns} dataSource={filterdData} size="small" />
   )
 }
 
