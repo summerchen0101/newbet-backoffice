@@ -107,7 +107,7 @@ const Component: React.FC = () => {
       <PageHeader title="在線人員" breadcrumb={{ routes }} />
       <Select
           showSearch
-          style={{ width: 200, marginBottom: 20 }}
+          style={{ width: 200 }}
           placeholder="全部"
           onChange={onChange}
       >

@@ -1,9 +1,11 @@
 import React, { useReducer } from 'react'
 import Dashboard from '@/components/Dashboard'
-
+import {Space} from 'antd'
 import PageHeader from '@/components/PageHeader'
 import TableData from './container/TableData'
 import RoleSelector from './container/RoleSelector'
+import StatusSelector from './container/StatusSelector'
+import KeywordInput from './container/KeywordInput'
 
 const routes = [
   {
@@ -25,7 +27,11 @@ const Component: React.FC = () => {
   return (
     <Dashboard>
       <PageHeader title="管理員管理" breadcrumb={{ routes }} />
-      <RoleSelector />
+      <Space size="small" style={{marginBottom: 20}}>
+        <RoleSelector />
+        <StatusSelector />
+        <KeywordInput />
+      </Space>
       <TableData />
     </Dashboard>
   )

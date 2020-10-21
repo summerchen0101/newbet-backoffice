@@ -2,6 +2,8 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 
 const initialState = {
   searchRole: '',
+  searchStatus: '',
+  searchKeyword: '',
   tableData: [],
   roleOptions: []
 }
@@ -14,11 +16,15 @@ const counterSlice = createSlice({
       state.tableData = action.payload
     },
     changeRoleSearch(state, action: PayloadAction<string>) {
+      console.log("changeRoleSearch")
+      console.log(action.payload)
       state.searchRole = action.payload
     },
-    searchRole(state, action: PayloadAction<string>) {
-      state.searchRole = action.payload
-      state.tableData = state.tableData.map(d => d.role.includes(state.searchRole))
+    changeStatusSearch(state, action: PayloadAction<string>) {
+      state.searchStatus = action.payload
+    },
+    changeKeywordSearch(state, action: PayloadAction<string>) {
+      state.searchKeyword = action.payload
     },
     gotRoleOptions(state, action: PayloadAction<any[]>) {
       state.roleOptions = action.payload
@@ -29,7 +35,8 @@ const counterSlice = createSlice({
 export const {
   gotTableData,
   changeRoleSearch,
-  searchRole,
+  changeStatusSearch,
+  changeKeywordSearch,
   gotRoleOptions
 } = counterSlice.actions
 export default counterSlice.reducer

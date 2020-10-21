@@ -24,7 +24,8 @@ const Component: React.FC = () => {
   return (
     <Select
         showSearch
-        style={{ width: 200, marginBottom: 20 }}
+        allowClear
+        style={{ width: 150 }}
         placeholder="全部"
         onChange={onChange}
         // defaultValue={searchRole}

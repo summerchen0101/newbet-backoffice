@@ -10,6 +10,10 @@ const selectRoleSearch = createSelector(
   selectManager,
   (manager) => manager.searchRole
 )
+const selectStatusSearch = createSelector(
+  selectManager,
+  (manager) => manager.searchStatus
+)
 export const selectRoleOptions = createSelector(
   selectManager,
   (manager) => manager.roleOptions
@@ -17,6 +21,14 @@ export const selectRoleOptions = createSelector(
 
 export const selectFilteredData =
   createSelector(
-    [selectTableData, selectRoleSearch],
-    (data, text) => text ? data.filter(d => d.role.includes(text)) : data
+    [selectTableData, selectRoleSearch, selectStatusSearch],
+    (originList, role, status) => {
+      return originList.filter(t => {
+        const arr = [
+          !role || t.role === role,
+          !status || t.stop === (status === 'off'),
+        ]
+        return arr.every(t => !!t)
+      })
+    }
   )
