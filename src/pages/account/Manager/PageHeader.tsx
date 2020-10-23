@@ -1,5 +1,6 @@
 import React from 'react';
 import PageHeader from '@/components/PageHeader';
+import * as mPath from '@/lib/menuPath';
 
 const routes = [
   {
@@ -11,7 +12,7 @@ const routes = [
     breadcrumbName: '帳號管理',
   },
   {
-    path: '/account/manager',
+    path: mPath.ACCOUNT_MANAGER,
     breadcrumbName: '管理員管理',
   },
 ];

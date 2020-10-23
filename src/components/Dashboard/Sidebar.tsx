@@ -33,7 +33,7 @@ const menu = [
     label: '層級管理',
     iconComp: UsergroupAddOutlined,
     children: [
-      { path: '/account-setting', label: '帳號設定' },
+      { path: mPath.LEVEL_ACCOUNT, label: '帳號設定' },
       { path: '/result', label: '會員輸贏' },
       { path: '/root-change', label: '移桶審核' },
       { path: '/share-account', label: '公桶設定' },

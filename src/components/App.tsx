@@ -7,6 +7,7 @@ import News from '@/pages/news/News';
 import Sample from '@/pages/Sample';
 import Manager from '@/pages/account/Manager';
 import Online from '@/pages/account/Online';
+import Account from '@/pages/level/Account';
 import * as mPath from '@/lib/menuPath';
 
 const rootRoutes = [
@@ -16,6 +17,7 @@ const rootRoutes = [
   { path: '/news', component: News },
   { path: mPath.ACCOUNT_MANAGER, component: Manager },
   { path: mPath.ACCOUNT_ONLINE, component: Online },
+  { path: mPath.LEVEL_ACCOUNT, component: Account },
 ];
 const App: React.FC = () => {
   return (
