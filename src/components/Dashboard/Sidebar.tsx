@@ -34,9 +34,9 @@ const menu = [
     iconComp: UsergroupAddOutlined,
     children: [
       { path: mPath.LEVEL_ACCOUNT, label: '帳號設定' },
-      { path: '/result', label: '會員輸贏' },
-      { path: '/root-change', label: '移桶審核' },
-      { path: '/share-account', label: '公桶設定' },
+      { path: mPath.GAME_RESULT, label: '會員輸贏' },
+      { path: mPath.ROOT_CHANGE, label: '移桶審核' },
+      { path: mPath.SHARE_ACCOUNT, label: '公桶設定' },
     ],
   },
   {

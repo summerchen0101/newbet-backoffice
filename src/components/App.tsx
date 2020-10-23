@@ -8,6 +8,9 @@ import Sample from '@/pages/Sample';
 import Manager from '@/pages/account/Manager';
 import Online from '@/pages/account/Online';
 import Account from '@/pages/level/Account';
+import GameResult from '@/pages/level/GameResult';
+import RootChange from '@/pages/level/RootChange';
+import ShareAccount from '@/pages/level/ShareAccount';
 import * as mPath from '@/lib/menuPath';
 
 const rootRoutes = [
@@ -18,6 +21,9 @@ const rootRoutes = [
   { path: mPath.ACCOUNT_MANAGER, component: Manager },
   { path: mPath.ACCOUNT_ONLINE, component: Online },
   { path: mPath.LEVEL_ACCOUNT, component: Account },
+  { path: mPath.GAME_RESULT, component: GameResult },
+  { path: mPath.ROOT_CHANGE, component: RootChange },
+  { path: mPath.SHARE_ACCOUNT, component: ShareAccount },
 ];
 const App: React.FC = () => {
   return (
