@@ -16,7 +16,6 @@ const roleList = [
 const Component: React.FC = () => {
   const dispatch = useDispatch();
   const roleOptions = useSelector(selectRoleOptions);
-  const roleSearch = useSelector(selectRoleSearch);
   useEffect(() => {
     dispatch(gotRoleOptions(roleList));
   }, []);
@@ -28,7 +27,6 @@ const Component: React.FC = () => {
       style={{ width: 150 }}
       placeholder="全部"
       onChange={onChange}
-      defaultValue={roleSearch}
     >
       {roleOptions.map((opt) => (
         <Option key={opt.value} value={opt.value}>

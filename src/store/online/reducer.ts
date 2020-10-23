@@ -19,6 +19,9 @@ const counterSlice = createSlice({
     gotRoleOptions(state, action: PayloadAction<any[]>) {
       state.roleOptions = action.payload;
     },
+    initSearchState(state) {
+      state.searchRole = undefined;
+    },
   },
 });
 
@@ -26,5 +29,6 @@ export const {
   gotTableData,
   changeRoleSearch,
   gotRoleOptions,
+  initSearchState,
 } = counterSlice.actions;
 export default counterSlice.reducer;

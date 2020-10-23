@@ -27,6 +27,11 @@ const counterSlice = createSlice({
     gotRoleOptions(state, action: PayloadAction<any[]>) {
       state.roleOptions = action.payload;
     },
+    initSearchState(state) {
+      state.searchRole = undefined;
+      state.searchStatus = undefined;
+      state.searchKeyword = '';
+    },
   },
 });
 
@@ -35,6 +40,7 @@ export const {
   changeRoleSearch,
   changeStatusSearch,
   changeKeywordSearch,
+  initSearchState,
   gotRoleOptions,
 } = counterSlice.actions;
 export default counterSlice.reducer;
