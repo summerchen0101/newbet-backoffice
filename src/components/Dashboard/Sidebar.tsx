@@ -44,10 +44,10 @@ const menu = [
     label: '查詢報表',
     iconComp: FileSearchOutlined,
     children: [
-      { path: '/today', label: '當日報表' },
-      { path: '/history', label: '歷史報表' },
-      { path: '/accounting', label: '帳務紀錄' },
-      { path: '/revenue', label: '營收查詢' },
+      { path: mPath.DAILY_REPORT, label: '當日報表' },
+      { path: mPath.HISTORY_REPORT, label: '歷史報表' },
+      { path: mPath.ACCOUNTING_REPORT, label: '帳務紀錄' },
+      { path: mPath.REVENUE_REPORT, label: '營收查詢' },
     ],
   },
   {
