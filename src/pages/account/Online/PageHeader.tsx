@@ -3,7 +3,7 @@ import PageHeader from '@/components/PageHeader';
 
 const routes = [
   {
-    path: '/home',
+    path: '/',
     breadcrumbName: '首頁',
   },
   {

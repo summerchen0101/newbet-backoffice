@@ -1,21 +1,19 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 const initialState = {
-  searchRole: '',
+  searchRole: undefined,
   tableData: [],
   roleOptions: [],
 };
 
 const counterSlice = createSlice({
-  name: 'manager',
+  name: 'online',
   initialState,
   reducers: {
     gotTableData(state, action: PayloadAction<any[]>) {
       state.tableData = action.payload;
     },
     changeRoleSearch(state, action: PayloadAction<string>) {
-      console.log('changeRoleSearch');
-      console.log(action.payload);
       state.searchRole = action.payload;
     },
     gotRoleOptions(state, action: PayloadAction<any[]>) {

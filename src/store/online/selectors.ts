@@ -1,18 +1,18 @@
 import { RootState } from '@/store';
 import { createSelector } from 'reselect';
 
-const selectManager = (state: RootState) => state.online;
+const selectOnline = (state: RootState) => state.online;
 const selectTableData = createSelector(
-  selectManager,
-  (manager) => manager.tableData,
+  selectOnline,
+  (online) => online.tableData,
 );
-const selectRoleSearch = createSelector(
-  selectManager,
-  (manager) => manager.searchRole,
+export const selectRoleSearch = createSelector(
+  selectOnline,
+  (online) => online.searchRole,
 );
 export const selectRoleOptions = createSelector(
-  selectManager,
-  (manager) => manager.roleOptions,
+  selectOnline,
+  (online) => online.roleOptions,
 );
 
 export const selectFilteredData = createSelector(

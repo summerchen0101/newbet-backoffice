@@ -6,11 +6,11 @@ const selectTableData = createSelector(
   selectManager,
   (manager) => manager.tableData,
 );
-const selectRoleSearch = createSelector(
+export const selectRoleSearch = createSelector(
   selectManager,
   (manager) => manager.searchRole,
 );
-const selectStatusSearch = createSelector(
+export const selectStatusSearch = createSelector(
   selectManager,
   (manager) => manager.searchStatus,
 );

@@ -75,7 +75,7 @@ const data = [
 
 const routes = [
   {
-    path: '/home',
+    path: '/',
     breadcrumbName: '首頁',
   },
   {

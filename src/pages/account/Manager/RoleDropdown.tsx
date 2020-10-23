@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useReducer } from 'react';
 
 import { Select } from 'antd';
 import { gotRoleOptions, changeRoleSearch } from '@/store/manager/reducer';
-import { selectRoleOptions } from '@/store/manager/selectors';
+import { selectRoleOptions, selectRoleSearch } from '@/store/manager/selectors';
 import { useDispatch, useSelector } from 'react-redux';
 
 const { Option } = Select;
@@ -16,6 +16,7 @@ const roleList = [
 const Component: React.FC = () => {
   const dispatch = useDispatch();
   const roleOptions = useSelector(selectRoleOptions);
+  const roleSearch = useSelector(selectRoleSearch);
   useEffect(() => {
     dispatch(gotRoleOptions(roleList));
   }, []);
@@ -27,7 +28,7 @@ const Component: React.FC = () => {
       style={{ width: 150 }}
       placeholder="全部"
       onChange={onChange}
-      // defaultValue={searchRole}
+      defaultValue={roleSearch}
     >
       {roleOptions.map((opt) => (
         <Option key={opt.value} value={opt.value}>

@@ -1,8 +1,9 @@
-import React, { useContext, useEffect, useReducer } from 'react';
+import React from 'react';
 
 import { Select } from 'antd';
 import { changeStatusSearch } from '@/store/manager/reducer';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { selectStatusSearch } from '@/store/manager/selectors';
 
 const { Option } = Select;
 
@@ -13,6 +14,7 @@ const options = [
 
 const Component: React.FC = () => {
   const dispatch = useDispatch();
+  const statusSearch = useSelector(selectStatusSearch);
   const onChange = (value) => dispatch(changeStatusSearch(value));
   return (
     <Select
@@ -21,6 +23,7 @@ const Component: React.FC = () => {
       style={{ width: 150 }}
       placeholder="全部"
       onChange={onChange}
+      defaultValue={statusSearch}
     >
       {options.map((opt) => (
         <Option key={opt.value} value={opt.value}>

@@ -11,13 +11,12 @@ import * as mPath from '@/lib/menuPath';
 
 const rootRoutes = [
   { path: '/login', component: Login },
-  { path: '/home', component: Home },
+  { path: '/', component: Home, exact: true },
   { path: '/sample', component: Sample },
   { path: '/news', component: News },
   { path: mPath.ACCOUNT_MANAGER, component: Manager },
   { path: mPath.ACCOUNT_ONLINE, component: Online },
 ];
-
 const App: React.FC = () => {
   return (
     <Router>

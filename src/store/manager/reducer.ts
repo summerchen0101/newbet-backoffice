@@ -1,8 +1,8 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-
+import produce from 'immer';
 const initialState = {
-  searchRole: '',
-  searchStatus: '',
+  searchRole: undefined,
+  searchStatus: undefined,
   searchKeyword: '',
   tableData: [],
   roleOptions: [],
@@ -16,8 +16,6 @@ const counterSlice = createSlice({
       state.tableData = action.payload;
     },
     changeRoleSearch(state, action: PayloadAction<string>) {
-      console.log('changeRoleSearch');
-      console.log(action.payload);
       state.searchRole = action.payload;
     },
     changeStatusSearch(state, action: PayloadAction<string>) {
