@@ -55,9 +55,9 @@ const menu = [
     label: '棒球',
     iconComp: StarOutlined,
     children: [
-      { path: '/single', label: '單式' },
-      { path: '/multiple', label: '過關' },
-      { path: '/history', label: '歷史比賽' },
+      { path: mPath.BASEBALL_SINGLE, label: '單式' },
+      { path: mPath.BASEBALL_MUITIPLE, label: '過關' },
+      { path: mPath.BASEBALL_HISTORY, label: '歷史比賽' },
     ],
   },
 ];

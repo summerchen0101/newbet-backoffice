@@ -10,3 +10,7 @@ export const DAILY_REPORT = '/report/daily';
 export const HISTORY_REPORT = '/report/history';
 export const ACCOUNTING_REPORT = '/report/accounting';
 export const REVENUE_REPORT = '/report/revenue';
+
+export const BASEBALL_SINGLE = '/baseball/single';
+export const BASEBALL_MUITIPLE = '/baseball/multiple';
+export const BASEBALL_HISTORY = '/baseball/history';

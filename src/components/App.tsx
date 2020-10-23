@@ -11,10 +11,13 @@ import Account from '@/pages/level/Account';
 import GameResult from '@/pages/level/GameResult';
 import RootChange from '@/pages/level/RootChange';
 import ShareAccount from '@/pages/level/ShareAccount';
-import dailyReport from '@/pages/report/Daily';
-import historyReport from '@/pages/report/History';
-import accountingReport from '@/pages/report/Accounting';
-import revenueReport from '@/pages/report/Revenue';
+import DailyReport from '@/pages/report/Daily';
+import HistoryReport from '@/pages/report/History';
+import AccountingReport from '@/pages/report/Accounting';
+import RevenueReport from '@/pages/report/Revenue';
+import BaseBallSingle from '@/pages/baseball/Single';
+import BaseBallMultiple from '@/pages/baseball/Multiple';
+import BaseBallHistory from '@/pages/baseball/History';
 import * as mPath from '@/lib/menuPath';
 
 const rootRoutes = [
@@ -31,10 +34,14 @@ const rootRoutes = [
   { path: mPath.ROOT_CHANGE, component: RootChange },
   { path: mPath.SHARE_ACCOUNT, component: ShareAccount },
 
-  { path: mPath.DAILY_REPORT, component: dailyReport },
-  { path: mPath.HISTORY_REPORT, component: historyReport },
-  { path: mPath.ACCOUNTING_REPORT, component: accountingReport },
-  { path: mPath.REVENUE_REPORT, component: revenueReport },
+  { path: mPath.DAILY_REPORT, component: DailyReport },
+  { path: mPath.HISTORY_REPORT, component: HistoryReport },
+  { path: mPath.ACCOUNTING_REPORT, component: AccountingReport },
+  { path: mPath.REVENUE_REPORT, component: RevenueReport },
+
+  { path: mPath.BASEBALL_SINGLE, component: BaseBallSingle },
+  { path: mPath.BASEBALL_MUITIPLE, component: BaseBallMultiple },
+  { path: mPath.BASEBALL_HISTORY, component: BaseBallHistory },
 ];
 const App: React.FC = () => {
   return (
