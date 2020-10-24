@@ -1,75 +1,70 @@
 import React, { useEffect } from 'react';
 import { Table, Space } from 'antd';
-import A from '@/components/A';
-import { CheckOutlined } from '@ant-design/icons';
-import { gotTableData } from '@/store/manager/reducer';
-import { selectFilteredData } from '@/store/manager/selectors';
-import { useSelector, useDispatch } from 'react-redux';
-import ColorBox from '@/components/ColorBox';
-
 const columns = [
   {
     title: '#',
     dataIndex: 'num',
     key: 'num',
+    width: '5%',
+  },
+  {
+    title: '站台',
+    dataIndex: 'branch',
+    key: 'branch',
     width: '10%',
   },
   {
-    title: '代理帳號',
-    dataIndex: 'branch',
-    key: 'branch',
+    title: '申請時間',
+    dataIndex: 'applyingAt',
+    key: 'applyingAt',
   },
   {
-    title: '名稱',
-    dataIndex: 'account',
-    key: 'account',
+    title: '審核時間',
+    dataIndex: 'reviewAt',
+    key: 'reviewAt',
   },
   {
-    title: '額度(萬)',
-    dataIndex: 'nick',
-    key: 'nick',
+    title: '申請人',
+    dataIndex: 'operating',
+    key: 'operating',
+    render: (operating) =>
+      operating && (
+        <>
+          {operating.account}({operating.nick})
+        </>
+      ),
   },
   {
-    title: '佔成',
-    dataIndex: 'role',
-    key: 'role',
-  },
-  {
-    title: '停用',
-    dataIndex: 'stop',
-    key: 'stop',
-    render: (stop) => stop && <CheckOutlined style={{ color: 'red' }} />,
-  },
-  {
-    title: '停押',
-    dataIndex: 'stop',
-    key: 'stop',
-    render: (stop) => stop && <CheckOutlined style={{ color: 'red' }} />,
-  },
-  {
-    title: '最後登入',
-    dataIndex: 'loginTime',
-    key: 'loginTime',
-  },
-  {
-    title: '危險等級',
-    key: 'danger',
-    dataIndex: 'danger',
-    render: (list) => (
-      <Space size="small">
-        {list && list.length > 0 ? (
-          list.map((t, i) => <ColorBox key={i} color={t} />)
-        ) : (
-          <a>設定</a>
-        )}
-      </Space>
-    ),
+    title: '移桶來源帳號',
+    dataIndex: 'source',
+    key: 'source',
     width: '15%',
+    render: (source) =>
+      source && (
+        <>
+          {source.account}({source.nick})
+          <span style={{ color: 'red' }}>[{source.level}]</span>
+        </>
+      ),
   },
   {
-    title: '移桶',
-    dataIndex: 'changeRoot',
-    key: 'changeRoot',
+    title: '移桶目標帳號',
+    dataIndex: 'target',
+    key: 'target',
+    width: '15%',
+    render: (target) =>
+      target && (
+        <>
+          {target.account}({target.nick})
+          <span style={{ color: 'red' }}>[{target.level}]</span>
+        </>
+      ),
+  },
+  {
+    title: '階層資訊',
+    dataIndex: 'info',
+    key: 'info',
+    render: () => <a>查看</a>,
   },
   {
     title: '備註',
@@ -77,41 +72,56 @@ const columns = [
     key: 'notes',
   },
   {
-    title: '編輯',
-    key: 'action',
-    render: (text, record) => (
-      <Space size="middle">
-        <a>修改</a>
-        <A type="danger">刪除</A>
-      </Space>
-    ),
-    width: '15%',
-  },
-  {
-    title: '複製',
-    key: 'copy',
+    title: '審核',
+    dataIndex: 'review',
+    key: 'review',
+    render: (review, record) =>
+      review === 0 ? <a>審核</a> : <span>處理中...</span>,
   },
 ];
+
+const columesForType = {
+  applying: columns.filter((t) => t.key !== 'reviewAt'),
+  success: columns.filter((t) => t.key !== 'review'),
+  cancel: columns.filter((t) => t.key !== 'review'),
+};
 
 const data = [
   {
     key: 1,
     num: 1,
-    branch: '站台名稱',
-    account: 'summer',
-    nick: '夏天',
-    role: '網站管理員',
-    stop: false,
+    branch: '站台一',
+    applyingAt: '07-30 16:44',
+    reviewAt: '07-31 10:02',
+    operating: { account: 'summer', nick: '夏天' },
+    source: { account: 'jason', nick: 'Jason', level: '總監' },
+    target: { account: 'cindy', nick: 'Cindy', level: '大總監' },
+    notes: '測試123',
+    review: 0,
+  },
+  {
+    key: 2,
+    num: 2,
+    branch: '站台一',
+    applyingAt: '07-30 16:44',
+    reviewAt: '07-31 10:02',
+    operating: { account: 'summer', nick: '夏天' },
+    source: { account: 'jason', nick: 'Jason', level: '總監' },
+    target: { account: 'cindy', nick: 'Cindy', level: '大總監' },
+    notes: '測試123',
+    review: 1,
   },
 ];
 
-const Component: React.FC = () => {
-  const dispatch = useDispatch();
-  const filterdData = useSelector(selectFilteredData);
-  useEffect(() => {
-    dispatch(gotTableData(data));
-  }, []);
-  return <Table columns={columns} dataSource={filterdData} size="small" />;
+const Component: React.FC<{ type: string }> = ({ type }) => {
+  return (
+    <Table
+      columns={columesForType[type]}
+      dataSource={data}
+      size="small"
+      scroll={{ x: 1200, y: 300 }}
+    />
+  );
 };
 
 export default Component;
