@@ -12,84 +12,57 @@ const columns = [
     title: '#',
     dataIndex: 'num',
     key: 'num',
+    width: '5%',
+  },
+  {
+    title: '站台',
+    dataIndex: 'branch',
+    key: 'branch',
     width: '10%',
   },
   {
-    title: '代理帳號',
-    dataIndex: 'branch',
-    key: 'branch',
-  },
-  {
-    title: '名稱',
-    dataIndex: 'account',
-    key: 'account',
-  },
-  {
-    title: '額度(萬)',
-    dataIndex: 'nick',
-    key: 'nick',
-  },
-  {
-    title: '佔成',
-    dataIndex: 'role',
-    key: 'role',
-  },
-  {
-    title: '停用',
-    dataIndex: 'stop',
-    key: 'stop',
-    render: (stop) => stop && <CheckOutlined style={{ color: 'red' }} />,
-  },
-  {
-    title: '停押',
-    dataIndex: 'stop',
-    key: 'stop',
-    render: (stop) => stop && <CheckOutlined style={{ color: 'red' }} />,
-  },
-  {
-    title: '最後登入',
-    dataIndex: 'loginTime',
-    key: 'loginTime',
-  },
-  {
-    title: '危險等級',
-    key: 'danger',
-    dataIndex: 'danger',
-    render: (list) => (
-      <Space size="small">
-        {list && list.length > 0 ? (
-          list.map((t, i) => <ColorBox key={i} color={t} />)
-        ) : (
-          <a>設定</a>
-        )}
-      </Space>
-    ),
-    width: '15%',
-  },
-  {
-    title: '移桶',
-    dataIndex: 'changeRoot',
-    key: 'changeRoot',
+    title: '公桶帳號(暱稱)',
+    dataIndex: 'share',
+    key: 'share',
+    render: (share) =>
+      share && (
+        <>
+          {share.account}({share.nick})
+        </>
+      ),
   },
   {
     title: '備註',
     dataIndex: 'notes',
     key: 'notes',
+    width: '12%',
   },
   {
-    title: '編輯',
-    key: 'action',
-    render: (text, record) => (
-      <Space size="middle">
-        <a>修改</a>
-        <A type="danger">刪除</A>
-      </Space>
-    ),
+    title: '下層',
+    dataIndex: 'subs',
+    key: 'subs',
+    render: () => <a>查看</a>,
+  },
+  {
+    title: '更新時間',
+    dataIndex: 'updateAt',
+    key: 'updateAt',
     width: '15%',
   },
   {
-    title: '複製',
-    key: 'copy',
+    title: '更新人員',
+    dataIndex: 'operator',
+    key: 'operator',
+  },
+  {
+    title: '功能',
+    key: 'action',
+    render: (text, record) => (
+      <Space size="middle">
+        <A type="danger">刪除</A>
+      </Space>
+    ),
+    width: '10%',
   },
 ];
 
@@ -97,11 +70,12 @@ const data = [
   {
     key: 1,
     num: 1,
-    branch: '站台名稱',
-    account: 'summer',
-    nick: '夏天',
-    role: '網站管理員',
-    stop: false,
+    branch: '站台一',
+    share: { account: 'share99', nick: '公桶大總監一號' },
+    subs: [],
+    notes: '測試00',
+    updateAt: '2020-10-09 14:33',
+    operator: 'summer',
   },
 ];
 

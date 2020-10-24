@@ -6,6 +6,7 @@ const Component: React.FC = () => {
   const onSearch = (value) => console.log('search: ' + value);
   return (
     <Search
+      allowClear
       placeholder="請輸入帳號"
       onSearch={onSearch}
       style={{ width: 200 }}
