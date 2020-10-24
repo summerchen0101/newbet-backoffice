@@ -10,7 +10,7 @@ import { initSearchState } from '@/store/online';
 const Component: React.FC = () => {
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(initSearchState);
+    dispatch(initSearchState());
   }, []);
   return (
     <Dashboard>
