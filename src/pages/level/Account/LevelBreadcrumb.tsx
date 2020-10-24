@@ -10,8 +10,8 @@ const levels: ILevel[] = [
   {
     path: '/',
     role: '站長',
-    account: 'summer',
-    nick: '夏天',
+    account: 'bill999',
+    nick: '比爾',
   },
   {
     path: '/',
@@ -24,8 +24,7 @@ const levels: ILevel[] = [
 const BreadcrumbText: React.FC<ILevel> = ({ role, account, nick }) => {
   return (
     <>
-      <span style={{ color: 'red' }}>[{role}]</span> {account}
-      {nick}
+      <span style={{ color: 'red' }}>[{role}]</span> {account}({nick})
     </>
   );
 };
@@ -35,7 +34,7 @@ const Component: React.FC = () => {
     <Breadcrumb style={{ marginBottom: 20 }}>
       <Breadcrumb.Item>全部</Breadcrumb.Item>
       {levels.map((t, i) => (
-        <Breadcrumb.Item>
+        <Breadcrumb.Item key={i}>
           {i === levels.length - 1 ? (
             <BreadcrumbText {...t} />
           ) : (

@@ -4,30 +4,17 @@ import { createSelector } from 'reselect';
 const selectModuleState = (state: RootState) => state.account;
 const selectTableData = createSelector(
   selectModuleState,
-  (manager) => manager.tableData,
+  (account) => account.tableData,
 );
-export const selectRoleSearch = createSelector(
+
+export const selectKeyword = createSelector(
   selectModuleState,
-  (manager) => manager.searchRole,
-);
-export const selectStatusSearch = createSelector(
-  selectModuleState,
-  (manager) => manager.searchStatus,
-);
-export const selectRoleOptions = createSelector(
-  selectModuleState,
-  (manager) => manager.roleOptions,
+  (account) => account.keyword,
 );
 
 export const selectFilteredData = createSelector(
-  [selectTableData, selectRoleSearch, selectStatusSearch],
-  (originList, role, status) => {
-    return originList.filter((t) => {
-      const arr = [
-        !role || t.role === role,
-        !status || t.stop === (status === 'off'),
-      ];
-      return arr.every((t) => !!t);
-    });
+  [selectTableData, selectKeyword],
+  (list, keyword) => {
+    return list.filter((t) => !keyword || JSON.stringify(t).includes(keyword));
   },
 );

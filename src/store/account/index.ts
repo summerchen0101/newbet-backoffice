@@ -1,9 +1,7 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 const initialState = {
-  searchRole: undefined,
-  searchStatus: undefined,
-  searchKeyword: '',
+  keyword: '',
   tableData: [],
   roleOptions: [],
 };
@@ -15,32 +13,14 @@ const module = createSlice({
     gotTableData(state, action: PayloadAction<any[]>) {
       state.tableData = action.payload;
     },
-    changeRoleSearch(state, action: PayloadAction<string>) {
-      state.searchRole = action.payload;
-    },
-    changeStatusSearch(state, action: PayloadAction<string>) {
-      state.searchStatus = action.payload;
-    },
-    changeKeywordSearch(state, action: PayloadAction<string>) {
-      state.searchKeyword = action.payload;
-    },
-    gotRoleOptions(state, action: PayloadAction<any[]>) {
-      state.roleOptions = action.payload;
+    changeKeyword(state, action: PayloadAction<string>) {
+      state.keyword = action.payload;
     },
     initSearchState(state) {
-      state.searchRole = undefined;
-      state.searchStatus = undefined;
-      state.searchKeyword = '';
+      state.keyword = '';
     },
   },
 });
 
-export const {
-  gotTableData,
-  changeRoleSearch,
-  changeStatusSearch,
-  changeKeywordSearch,
-  initSearchState,
-  gotRoleOptions,
-} = module.actions;
+export const { gotTableData, changeKeyword, initSearchState } = module.actions;
 export default module.reducer;
