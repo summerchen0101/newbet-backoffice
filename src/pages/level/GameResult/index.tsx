@@ -1,11 +1,10 @@
 import React, { useEffect, useReducer } from 'react';
 import Dashboard from '@/components/Dashboard';
-import { Space } from 'antd';
 import PageHeader from './PageHeader';
 import TableData from './TableData';
-import RoleDropdown from './RoleDropdown';
-import StatusDropdown from './StatusDropdown';
-import KeywordInput from './KeywordInput';
+import ResultTypeDropdown from './ResultTypeDropdown';
+import RankDropdown from './RankDropdown';
+import DateRangePicker from './DateRangePicker';
 import PageSearchBar from '@/components/PageSearchBar';
 import { useDispatch } from 'react-redux';
 import { initSearchState } from '@/store/manager/reducer';
@@ -19,9 +18,9 @@ const Component: React.FC = () => {
     <Dashboard>
       <PageHeader />
       <PageSearchBar>
-        <RoleDropdown />
-        <StatusDropdown />
-        <KeywordInput />
+        <DateRangePicker />
+        <ResultTypeDropdown />
+        <RankDropdown />
       </PageSearchBar>
       <TableData />
     </Dashboard>
