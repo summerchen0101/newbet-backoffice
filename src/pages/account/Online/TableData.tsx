@@ -46,7 +46,7 @@ const columns = [
         {list && list.length > 0 ? (
           list.map((t, i) => <ColorBox key={i} color={t} />)
         ) : (
-          <a className="text-danger">設定</a>
+          <a>設定</a>
         )}
       </Space>
     ),

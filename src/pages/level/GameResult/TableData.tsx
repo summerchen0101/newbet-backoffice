@@ -60,7 +60,7 @@ const columns = [
         {list && list.length > 0 ? (
           list.map((t, i) => <ColorBox key={i} color={t} />)
         ) : (
-          <a className="text-danger">設定</a>
+          <a>設定</a>
         )}
       </Space>
     ),
@@ -81,7 +81,7 @@ const columns = [
     key: 'action',
     render: (text, record) => (
       <Space size="middle">
-        <a className="text-danger">修改</a>
+        <a>修改</a>
         <A type="danger">刪除</A>
       </Space>
     ),

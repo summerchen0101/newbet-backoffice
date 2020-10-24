@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Table, Space } from 'antd';
+import { Table, Space, Checkbox } from 'antd';
 import A from '@/components/A';
 import { CheckOutlined } from '@ant-design/icons';
 import { gotTableData } from '@/store/manager/reducer';
@@ -12,39 +12,38 @@ const columns = [
     title: '#',
     dataIndex: 'num',
     key: 'num',
-    width: '10%',
   },
   {
     title: '代理帳號',
-    dataIndex: 'branch',
-    key: 'branch',
-  },
-  {
-    title: '名稱',
     dataIndex: 'account',
     key: 'account',
   },
   {
-    title: '額度(萬)',
+    title: '名稱',
     dataIndex: 'nick',
     key: 'nick',
   },
   {
+    title: '額度(萬)',
+    dataIndex: 'quota',
+    key: 'quota',
+  },
+  {
     title: '佔成',
-    dataIndex: 'role',
-    key: 'role',
+    key: 'percent',
+    render: (text, record) => <a>查看</a>,
   },
   {
     title: '停用',
-    dataIndex: 'stop',
-    key: 'stop',
-    render: (stop) => stop && <CheckOutlined style={{ color: 'red' }} />,
+    dataIndex: 'stopUse',
+    key: 'stopUse',
+    render: (value) => <Checkbox checked={value} />,
   },
   {
     title: '停押',
-    dataIndex: 'stop',
-    key: 'stop',
-    render: (stop) => stop && <CheckOutlined style={{ color: 'red' }} />,
+    dataIndex: 'stopBet',
+    key: 'stopBet',
+    render: (value) => <Checkbox checked={value} />,
   },
   {
     title: '最後登入',
@@ -60,16 +59,16 @@ const columns = [
         {list && list.length > 0 ? (
           list.map((t, i) => <ColorBox key={i} color={t} />)
         ) : (
-          <a className="text-danger">設定</a>
+          <a>設定</a>
         )}
       </Space>
     ),
-    width: '15%',
   },
   {
     title: '移桶',
     dataIndex: 'changeRoot',
     key: 'changeRoot',
+    render: (value) => (value === 0 ? <a>申請</a> : <span>處理中</span>),
   },
   {
     title: '備註',
@@ -79,17 +78,12 @@ const columns = [
   {
     title: '編輯',
     key: 'action',
-    render: (text, record) => (
-      <Space size="middle">
-        <a className="text-danger">修改</a>
-        <A type="danger">刪除</A>
-      </Space>
-    ),
-    width: '15%',
+    render: (text, record) => <a>修改</a>,
   },
   {
     title: '複製',
     key: 'copy',
+    render: (text, record) => <a>複製</a>,
   },
 ];
 
@@ -97,11 +91,15 @@ const data = [
   {
     key: 1,
     num: 1,
-    branch: '站台名稱',
     account: 'summer',
     nick: '夏天',
-    role: '網站管理員',
-    stop: false,
+    quota: 5300,
+    stopUse: false,
+    stopBet: true,
+    loginTime: '2019-12-20 14:58',
+    danger: ['#f5222d', '#fadb14'],
+    changeParent: 0,
+    notes: '',
   },
 ];
 

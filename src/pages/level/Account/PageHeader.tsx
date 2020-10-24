@@ -18,7 +18,7 @@ const routes = [
 ];
 
 const Component: React.FC = () => {
-  return <PageHeader title="帳號設定" breadcrumb={{ routes }} />;
+  return <PageHeader title="帳號設定(10級代理)" breadcrumb={{ routes }} />;
 };
 
 export default Component;
