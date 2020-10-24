@@ -2,14 +2,12 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 const initialState = {
   searchRole: undefined,
-  searchStatus: undefined,
-  searchKeyword: '',
   tableData: [],
   roleOptions: [],
 };
 
-const counterSlice = createSlice({
-  name: 'account',
+const module = createSlice({
+  name: 'online',
   initialState,
   reducers: {
     gotTableData(state, action: PayloadAction<any[]>) {
@@ -18,19 +16,11 @@ const counterSlice = createSlice({
     changeRoleSearch(state, action: PayloadAction<string>) {
       state.searchRole = action.payload;
     },
-    changeStatusSearch(state, action: PayloadAction<string>) {
-      state.searchStatus = action.payload;
-    },
-    changeKeywordSearch(state, action: PayloadAction<string>) {
-      state.searchKeyword = action.payload;
-    },
     gotRoleOptions(state, action: PayloadAction<any[]>) {
       state.roleOptions = action.payload;
     },
     initSearchState(state) {
       state.searchRole = undefined;
-      state.searchStatus = undefined;
-      state.searchKeyword = '';
     },
   },
 });
@@ -38,9 +28,7 @@ const counterSlice = createSlice({
 export const {
   gotTableData,
   changeRoleSearch,
-  changeStatusSearch,
-  changeKeywordSearch,
-  initSearchState,
   gotRoleOptions,
-} = counterSlice.actions;
-export default counterSlice.reducer;
+  initSearchState,
+} = module.actions;
+export default module.reducer;

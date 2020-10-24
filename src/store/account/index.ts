@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import produce from 'immer';
+
 const initialState = {
   searchRole: undefined,
   searchStatus: undefined,
@@ -8,8 +8,8 @@ const initialState = {
   roleOptions: [],
 };
 
-const counterSlice = createSlice({
-  name: 'manager',
+const module = createSlice({
+  name: 'account',
   initialState,
   reducers: {
     gotTableData(state, action: PayloadAction<any[]>) {
@@ -42,5 +42,5 @@ export const {
   changeKeywordSearch,
   initSearchState,
   gotRoleOptions,
-} = counterSlice.actions;
-export default counterSlice.reducer;
+} = module.actions;
+export default module.reducer;

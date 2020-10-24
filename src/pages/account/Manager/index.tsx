@@ -8,7 +8,7 @@ import StatusDropdown from './StatusDropdown';
 import KeywordInput from './KeywordInput';
 import PageSearchBar from '@/components/PageSearchBar';
 import { useDispatch } from 'react-redux';
-import { initSearchState } from '@/store/manager/reducer';
+import { initSearchState } from '@/store/manager';
 
 const Component: React.FC = () => {
   const dispatch = useDispatch();

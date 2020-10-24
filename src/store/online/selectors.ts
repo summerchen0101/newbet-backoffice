@@ -1,17 +1,17 @@
 import { RootState } from '@/store';
 import { createSelector } from 'reselect';
 
-const selectOnline = (state: RootState) => state.online;
+const selectModuleState = (state: RootState) => state.online;
 const selectTableData = createSelector(
-  selectOnline,
+  selectModuleState,
   (online) => online.tableData,
 );
 export const selectRoleSearch = createSelector(
-  selectOnline,
+  selectModuleState,
   (online) => online.searchRole,
 );
 export const selectRoleOptions = createSelector(
-  selectOnline,
+  selectModuleState,
   (online) => online.roleOptions,
 );
 

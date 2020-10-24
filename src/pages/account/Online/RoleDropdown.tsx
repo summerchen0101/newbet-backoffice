@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 
 import { Select } from 'antd';
-import { changeRoleSearch, gotRoleOptions } from '@/store/online/reducer';
+import { changeRoleSearch, gotRoleOptions } from '@/store/online';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectRoleOptions, selectRoleSearch } from '@/store/online/selectors';
 

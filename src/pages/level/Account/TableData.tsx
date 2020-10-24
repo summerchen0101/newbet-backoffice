@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { Table, Space, Checkbox } from 'antd';
 import A from '@/components/A';
 import { CheckOutlined } from '@ant-design/icons';
-import { gotTableData } from '@/store/manager/reducer';
+import { gotTableData } from '@/store/manager';
 import { selectFilteredData } from '@/store/manager/selectors';
 import { useSelector, useDispatch } from 'react-redux';
 import ColorBox from '@/components/ColorBox';

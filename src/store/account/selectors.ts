@@ -1,21 +1,21 @@
 import { RootState } from '@/store';
 import { createSelector } from 'reselect';
 
-const selectManager = (state: RootState) => state.manager;
+const selectModuleState = (state: RootState) => state.account;
 const selectTableData = createSelector(
-  selectManager,
+  selectModuleState,
   (manager) => manager.tableData,
 );
 export const selectRoleSearch = createSelector(
-  selectManager,
+  selectModuleState,
   (manager) => manager.searchRole,
 );
 export const selectStatusSearch = createSelector(
-  selectManager,
+  selectModuleState,
   (manager) => manager.searchStatus,
 );
 export const selectRoleOptions = createSelector(
-  selectManager,
+  selectModuleState,
   (manager) => manager.roleOptions,
 );
 

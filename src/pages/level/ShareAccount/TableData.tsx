@@ -1,11 +1,9 @@
 import React, { useEffect } from 'react';
 import { Table, Space } from 'antd';
 import A from '@/components/A';
-import { CheckOutlined } from '@ant-design/icons';
-import { gotTableData } from '@/store/manager/reducer';
-import { selectFilteredData } from '@/store/manager/selectors';
+import { gotTableData } from '@/store/shareAccount';
+import { selectFilteredData } from '@/store/shareAccount/selectors';
 import { useSelector, useDispatch } from 'react-redux';
-import ColorBox from '@/components/ColorBox';
 
 const columns = [
   {

@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { Table, Space } from 'antd';
-import { gotTableData } from '@/store/manager/reducer';
+import { gotTableData } from '@/store/manager';
 import { selectFilteredData } from '@/store/manager/selectors';
 import { useSelector, useDispatch } from 'react-redux';
 import { toCurrency } from '@/utils/transfer';

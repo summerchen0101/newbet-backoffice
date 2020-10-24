@@ -5,7 +5,7 @@ import TableData from './TableData';
 import RoleDropdown from './RoleDropdown';
 import PageHeader from './PageHeader';
 import { useDispatch } from 'react-redux';
-import { initSearchState } from '@/store/online/reducer';
+import { initSearchState } from '@/store/online';
 
 const Component: React.FC = () => {
   const dispatch = useDispatch();

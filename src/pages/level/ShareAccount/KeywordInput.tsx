@@ -1,9 +1,12 @@
 import React from 'react';
 import { Input } from 'antd';
+import { useDispatch } from 'react-redux';
+import { changeKeyword } from '@/store/shareAccount';
 const { Search } = Input;
 
 const Component: React.FC = () => {
-  const onSearch = (value) => console.log('search: ' + value);
+  const dispatch = useDispatch();
+  const onSearch = (value) => dispatch(changeKeyword(value));
   return (
     <Search
       allowClear

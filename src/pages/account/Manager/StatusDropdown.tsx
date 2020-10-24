@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { Select } from 'antd';
-import { changeStatusSearch } from '@/store/manager/reducer';
+import { changeStatusSearch } from '@/store/manager';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectStatusSearch } from '@/store/manager/selectors';
 
