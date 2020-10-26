@@ -108,7 +108,14 @@ const Component: React.FC = () => {
   useEffect(() => {
     dispatch(gotTableData(data));
   }, []);
-  return <Table columns={columns} dataSource={filterdData} size="small" />;
+  return (
+    <Table
+      columns={columns}
+      dataSource={filterdData}
+      size="small"
+      scroll={{ x: 1200, y: 300 }}
+    />
+  );
 };
 
 export default Component;
