@@ -24,7 +24,12 @@ const Component: React.FC = () => {
         ball: ['baseball', 'hockey'],
       }}
     >
-      <Form.Item name="type" label="類型" labelAlign="left">
+      <Form.Item
+        name="type"
+        label="類型"
+        labelAlign="left"
+        style={{ marginBottom: 14 }}
+      >
         <Checkbox.Group style={{ width: '100%' }}>
           <Space size="large">
             <Checkbox value="A">單式</Checkbox>
@@ -32,7 +37,12 @@ const Component: React.FC = () => {
           </Space>
         </Checkbox.Group>
       </Form.Item>
-      <Form.Item name="ball" label="球類" labelAlign="left">
+      <Form.Item
+        name="ball"
+        label="球類"
+        labelAlign="left"
+        style={{ marginBottom: 14 }}
+      >
         <Checkbox.Group style={{ width: '100%' }}>
           <Space size="large">
             {Object.keys(sports).map((key) => (
@@ -41,7 +51,12 @@ const Component: React.FC = () => {
           </Space>
         </Checkbox.Group>
       </Form.Item>
-      <Form.Item name="category" label="球種" labelAlign="left">
+      <Form.Item
+        name="category"
+        label="球種"
+        labelAlign="left"
+        style={{ marginBottom: 14 }}
+      >
         <Checkbox.Group style={{ width: '100%' }}>
           <Space size="large">
             {Object.keys(categorys).map((key) => (
@@ -50,7 +65,12 @@ const Component: React.FC = () => {
           </Space>
         </Checkbox.Group>
       </Form.Item>
-      <Form.Item name="game" label="場次" labelAlign="left">
+      <Form.Item
+        name="game"
+        label="場次"
+        labelAlign="left"
+        style={{ marginBottom: 14 }}
+      >
         <Checkbox.Group style={{ width: '100%' }}>
           <Space size="large">
             {Object.keys(games).map((key) => (
@@ -59,7 +79,12 @@ const Component: React.FC = () => {
           </Space>
         </Checkbox.Group>
       </Form.Item>
-      <Form.Item name="play" label="玩法" labelAlign="left">
+      <Form.Item
+        name="play"
+        label="玩法"
+        labelAlign="left"
+        style={{ marginBottom: 20 }}
+      >
         <Checkbox.Group style={{ width: '100%' }}>
           <Space size="large">
             {Object.keys(plays).map((key) => (
