@@ -1,17 +1,25 @@
 import React, { useEffect, useReducer } from 'react';
 import Dashboard from '@/components/Dashboard';
 import PageHeader from './PageHeader';
-import { useDispatch } from 'react-redux';
-import { initSearchState } from '@/store/manager';
+import SportTable from './SportTable';
+import DateRangePicker from './DateRangePicker';
+import Form from './Form';
+import PageSearchBar from '@/components/PageSearchBar';
+import EmptyDivider from '@/components/EmptyDivider';
+import RelativeDateBtns from '@/components/RelativeDateBtns';
 
 const Component: React.FC = () => {
-  const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(initSearchState());
-  }, []);
   return (
     <Dashboard>
       <PageHeader />
+      <SportTable />
+      <EmptyDivider />
+      <PageSearchBar>
+        <DateRangePicker />
+        <RelativeDateBtns />
+      </PageSearchBar>
+      <EmptyDivider />
+      <Form />
     </Dashboard>
   );
 };
