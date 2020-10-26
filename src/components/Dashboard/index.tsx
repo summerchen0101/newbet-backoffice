@@ -4,9 +4,8 @@ import { Layout, PageHeader } from 'antd';
 import './style.css';
 import Sidebar from './Sidebar';
 import Header from './Header';
+import Content from './Content';
 import DashboardContext from '@/contexts/DashboardContext';
-
-const { Content } = Layout;
 
 const Component: React.FC = ({ children }) => {
   const [collapsed, changeCollapsed] = useState(false);
@@ -17,17 +16,7 @@ const Component: React.FC = ({ children }) => {
         <Sidebar />
         <Layout className="site-layout">
           <Header />
-          <Content
-            className="site-layout-background"
-            style={{
-              margin: '24px 16px',
-              padding: 24,
-              minHeight: 280,
-              overflowY: 'auto',
-            }}
-          >
-            {children}
-          </Content>
+          <Content>{children}</Content>
         </Layout>
       </Layout>
     </DashboardContext.Provider>
