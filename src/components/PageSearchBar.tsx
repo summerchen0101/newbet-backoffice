@@ -3,7 +3,7 @@ import { Space } from 'antd';
 
 const PageSearchBar: React.FC = ({ children, ...props }) => {
   return (
-    <Space size="small" style={{ marginBottom: 20 }} {...props}>
+    <Space size="small" style={{ marginBottom: 20, width: '100%' }} {...props}>
       {children}
     </Space>
   );

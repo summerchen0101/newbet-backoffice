@@ -4,6 +4,7 @@ import { PageHeader } from 'antd';
 import { useHistory, Link } from 'react-router-dom';
 import { BreadcrumbProps } from 'antd/lib/breadcrumb';
 import { Route } from 'antd/lib/breadcrumb/Breadcrumb';
+import { PageHeaderProps } from 'antd/lib/page-header';
 
 function itemRender(route, params, routes, paths) {
   const last = routes.indexOf(route) === routes.length - 1;
@@ -14,10 +15,9 @@ function itemRender(route, params, routes, paths) {
   );
 }
 
-const Component: React.FC<{ title: string; breadcrumb: BreadcrumbProps }> = ({
-  title,
-  breadcrumb,
-}) => {
+const Component: React.FC<
+  PageHeaderProps & { title: string; breadcrumb: BreadcrumbProps }
+> = ({ title, breadcrumb, ...props }) => {
   const history = useHistory();
   return (
     <PageHeader
@@ -25,6 +25,7 @@ const Component: React.FC<{ title: string; breadcrumb: BreadcrumbProps }> = ({
       onBack={() => history.goBack()}
       title={title}
       breadcrumb={{ itemRender, ...breadcrumb }}
+      {...props}
     />
   );
 };
