@@ -3,7 +3,7 @@ import Dashboard from '@/components/Dashboard';
 import PageHeader from './PageHeader';
 import SportTable from './SportTable';
 import DateRangePicker from './DateRangePicker';
-import Form from './Form';
+import SearchForm from './SearchForm';
 import PageSearchBar from '@/components/PageSearchBar';
 import EmptyDivider from '@/components/EmptyDivider';
 import RelativeDateBtns from '@/components/RelativeDateBtns';
@@ -18,8 +18,7 @@ const Component: React.FC = () => {
         <DateRangePicker />
         <RelativeDateBtns />
       </PageSearchBar>
-      <EmptyDivider />
-      <Form />
+      <SearchForm />
     </Dashboard>
   );
 };

@@ -6,11 +6,11 @@ import plays from '@/lib/plays';
 import categorys from '@/lib/categorys';
 
 const formItemLayout = {
-  labelCol: { span: 4 },
+  labelCol: { span: 3 },
   wrapperCol: { span: 20 },
 };
 
-const Component: React.FC = () => {
+const SearchForm: React.FC = () => {
   const onFinish = (values) => {
     console.log('Received values of form: ', values);
   };
@@ -28,7 +28,7 @@ const Component: React.FC = () => {
         name="type"
         label="類型"
         labelAlign="left"
-        style={{ marginBottom: 14 }}
+        style={{ marginBottom: 16 }}
       >
         <Checkbox.Group style={{ width: '100%' }}>
           <Space size="large">
@@ -41,12 +41,14 @@ const Component: React.FC = () => {
         name="ball"
         label="球類"
         labelAlign="left"
-        style={{ marginBottom: 14 }}
+        style={{ marginBottom: 16 }}
       >
         <Checkbox.Group style={{ width: '100%' }}>
           <Space size="large">
             {Object.keys(sports).map((key) => (
-              <Checkbox value={key}>{sports[key]}</Checkbox>
+              <Checkbox value={key} key={key}>
+                {sports[key]}
+              </Checkbox>
             ))}
           </Space>
         </Checkbox.Group>
@@ -55,12 +57,14 @@ const Component: React.FC = () => {
         name="category"
         label="球種"
         labelAlign="left"
-        style={{ marginBottom: 14 }}
+        style={{ marginBottom: 16 }}
       >
         <Checkbox.Group style={{ width: '100%' }}>
           <Space size="large">
             {Object.keys(categorys).map((key) => (
-              <Checkbox value={key}>{categorys[key]}</Checkbox>
+              <Checkbox value={key} key={key}>
+                {categorys[key]}
+              </Checkbox>
             ))}
           </Space>
         </Checkbox.Group>
@@ -69,12 +73,14 @@ const Component: React.FC = () => {
         name="game"
         label="場次"
         labelAlign="left"
-        style={{ marginBottom: 14 }}
+        style={{ marginBottom: 16 }}
       >
         <Checkbox.Group style={{ width: '100%' }}>
           <Space size="large">
             {Object.keys(games).map((key) => (
-              <Checkbox value={key}>{games[key]}</Checkbox>
+              <Checkbox value={key} key={key}>
+                {games[key]}
+              </Checkbox>
             ))}
           </Space>
         </Checkbox.Group>
@@ -83,17 +89,19 @@ const Component: React.FC = () => {
         name="play"
         label="玩法"
         labelAlign="left"
-        style={{ marginBottom: 20 }}
+        style={{ marginBottom: 25 }}
       >
         <Checkbox.Group style={{ width: '100%' }}>
           <Space size="large">
             {Object.keys(plays).map((key) => (
-              <Checkbox value={key}>{plays[key]}</Checkbox>
+              <Checkbox value={key} key={key}>
+                {plays[key]}
+              </Checkbox>
             ))}
           </Space>
         </Checkbox.Group>
       </Form.Item>
-      <Form.Item wrapperCol={{ span: 20, offset: 4 }}>
+      <Form.Item>
         <Button type="primary" htmlType="submit">
           查詢報表
         </Button>
@@ -102,4 +110,4 @@ const Component: React.FC = () => {
   );
 };
 
-export default Component;
+export default SearchForm;
