@@ -1,10 +1,11 @@
-import React, { useEffect } from 'react';
-import { Table, Space } from 'antd';
+import React, { useEffect, useState } from 'react';
+import { Table, Space, Modal } from 'antd';
 import A from '@/components/A';
 import { CheckOutlined } from '@ant-design/icons';
-import { gotTableData } from '@/store/manager';
-import { selectFilteredData } from '@/store/manager/selectors';
+import { gotTableData } from './reducer';
+import { selectFilteredData } from '@/pages/account/Manager/selectors';
 import { useSelector, useDispatch } from 'react-redux';
+import CreateModal from './CreateModal';
 const columns = [
   {
     title: '#',
@@ -41,12 +42,14 @@ const columns = [
   {
     title: '編輯',
     key: 'action',
-    render: (text, record) => (
-      <Space size="middle">
-        <a>修改</a>
-        <A type="danger">刪除</A>
-      </Space>
-    ),
+    render: (text, record) => {
+      return (
+        <Space size="middle">
+          <A type="primary">修改</A>
+          <A type="danger">刪除</A>
+        </Space>
+      );
+    },
     width: '15%',
   },
 ];
@@ -87,7 +90,14 @@ const Component: React.FC = () => {
   useEffect(() => {
     dispatch(gotTableData(data));
   }, []);
-  return <Table columns={columns} dataSource={filterdData} size="small" scroll={{ x: 1200, y: 300 }} />;
+  return (
+    <Table
+      columns={columns}
+      dataSource={filterdData}
+      size="small"
+      scroll={{ x: 1200, y: 300 }}
+    />
+  );
 };
 
 export default Component;

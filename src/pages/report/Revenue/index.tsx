@@ -8,7 +8,7 @@ import MonthlyRevenueTable from './MonthlyRevenueTable';
 import GameResultTable from './GameResultTable';
 import SearchSubmitBtn from './SearchSubmitBtn';
 import { useDispatch } from 'react-redux';
-import { initSearchState } from '@/store/manager';
+import { initSearchState } from '@/pages/account/Manager/reducer';
 import PageSearchBar from '@/components/PageSearchBar';
 import EmptyDivider from '@/components/EmptyDivider';
 

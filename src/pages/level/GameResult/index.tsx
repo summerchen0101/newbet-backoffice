@@ -7,7 +7,7 @@ import RankDropdown from './RankDropdown';
 import DateRangePicker from './DateRangePicker';
 import PageSearchBar from '@/components/PageSearchBar';
 import { useDispatch } from 'react-redux';
-import { initSearchState } from '@/store/manager';
+import { initSearchState } from '@/pages/account/Manager/reducer';
 
 const Component: React.FC = () => {
   const dispatch = useDispatch();

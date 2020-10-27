@@ -1,9 +1,9 @@
 import React from 'react';
 
 import { Select } from 'antd';
-import { changeStatusSearch } from '@/store/manager';
+import { changeStatusSearch } from '@/pages/account/Manager/reducer';
 import { useDispatch, useSelector } from 'react-redux';
-import { selectStatusSearch } from '@/store/manager/selectors';
+import { selectStatusSearch } from '@/pages/account/Manager/selectors';
 
 const { Option } = Select;
 

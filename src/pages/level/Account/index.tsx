@@ -6,7 +6,7 @@ import LevelBreadcrumb from './LevelBreadcrumb';
 import KeywordInput from './KeywordInput';
 import PageSearchBar from '@/components/PageSearchBar';
 import { useDispatch } from 'react-redux';
-import { initSearchState } from '@/store/manager';
+import { initSearchState } from '@/pages/account/Manager/reducer';
 
 const Component: React.FC = () => {
   const dispatch = useDispatch();

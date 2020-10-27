@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { Table, Space } from 'antd';
-import { gotTableData } from '@/store/manager';
-import { selectFilteredData } from '@/store/manager/selectors';
+import { gotTableData } from '@/pages/account/Manager/reducer';
+import { selectFilteredData } from '@/pages/account/Manager/selectors';
 import { useSelector, useDispatch } from 'react-redux';
 import { toCurrency } from '@/utils/transfer';
 
@@ -69,7 +69,14 @@ const Component: React.FC = () => {
   useEffect(() => {
     dispatch(gotTableData(data));
   }, []);
-  return <Table columns={columns} dataSource={filterdData} size="small" scroll={{ x: 1200, y: 300 }} />;
+  return (
+    <Table
+      columns={columns}
+      dataSource={filterdData}
+      size="small"
+      scroll={{ x: 1200, y: 300 }}
+    />
+  );
 };
 
 export default Component;

@@ -1,8 +1,11 @@
 import React, { useContext, useEffect, useReducer } from 'react';
 
 import { Select } from 'antd';
-import { gotRoleOptions, changeRoleSearch } from '@/store/manager';
-import { selectRoleOptions, selectRoleSearch } from '@/store/manager/selectors';
+import { gotRoleOptions, changeRoleSearch } from './reducer';
+import {
+  selectRoleOptions,
+  selectRoleSearch,
+} from '@/pages/account/Manager/selectors';
 import { useDispatch, useSelector } from 'react-redux';
 
 const { Option } = Select;

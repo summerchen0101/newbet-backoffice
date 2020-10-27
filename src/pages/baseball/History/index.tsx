@@ -8,7 +8,7 @@ import SearchSubmitBtn from './SearchSubmitBtn';
 import SearchResetBtn from './SearchResetBtn';
 import TableData from './TableData';
 import { useDispatch } from 'react-redux';
-import { initSearchState } from '@/store/manager';
+import { initSearchState } from '@/pages/account/Manager/reducer';
 import PageSearchBar from '@/components/PageSearchBar';
 
 const Component: React.FC = () => {

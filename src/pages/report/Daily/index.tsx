@@ -3,7 +3,7 @@ import Dashboard from '@/components/Dashboard';
 import PageHeader from './PageHeader';
 import SportTable from './SportTable';
 import { useDispatch } from 'react-redux';
-import { initSearchState } from '@/store/manager';
+import { initSearchState } from '@/pages/account/Manager/reducer';
 import PageSearchBar from '@/components/PageSearchBar';
 import TypeDropdown from './TypeDropdown';
 import BallDropdown from './BallDropdown';
