@@ -1,22 +1,38 @@
 import React from 'react';
 import Dashboard from '@/components/Dashboard';
-import { Card, Col, Row } from 'antd';
-import NumberBox from './NumberBox';
-import ResultBox from './ResultBox';
+import ColorRate from './ColorRate';
+import { Statistic, Col, Row, Divider } from 'antd';
 
 const Component: React.FC = () => (
   <Dashboard>
-    <Row gutter={16}>
+    <Row gutter={16} style={{ margin: '30px 20px' }}>
       <Col span={16}>
-        <ResultBox />
+        <h5>輸贏結果</h5>
+        <Row gutter={16}>
+          <Col span={6}>
+            <Statistic title="今日輸贏" value={112893} />
+            <ColorRate>3.3</ColorRate>
+          </Col>
+          <Col span={6}>
+            <Statistic title="本週輸贏" value={112893} />
+            <ColorRate>-0.3</ColorRate>
+          </Col>
+          <Col span={6}>
+            <Statistic title="本月輸贏" value={112893} />
+            <ColorRate>1.5</ColorRate>
+          </Col>
+          <Col span={6}>
+            <Statistic title="上線人數" value={112} />
+          </Col>
+        </Row>
       </Col>
       <Col span={8}>
-        <Row gutter={16}>
+        <Row gutter={16} style={{ marginTop: 32 }}>
           <Col span={12}>
-            <NumberBox num={4} title="移桶審核" />
+            <Statistic title="移桶審核" value={4} />
           </Col>
           <Col span={12}>
-            <NumberBox num={0} title="結帳審核" />
+            <Statistic title="結帳審核" value={0} />
           </Col>
         </Row>
       </Col>
