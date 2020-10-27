@@ -17,7 +17,7 @@ import * as mPath from '@/lib/menuPath';
 const { Sider } = Layout;
 
 const menu = [
-  { path: '/sample', label: '範例頁', iconComp: DashboardOutlined },
+  // { path: '/sample', label: '範例頁', iconComp: DashboardOutlined },
   { path: '/news', label: '公告', iconComp: NotificationOutlined },
   {
     path: '/account',
