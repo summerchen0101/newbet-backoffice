@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react';
 import { Table, Space } from 'antd';
 import A from '@/components/A';
-import { gotTableData } from '@/store/shareAccount';
-import { selectFilteredData } from '@/store/shareAccount/selectors';
+import { gotTableData } from '@/pages/level/ShareAccount/reducer';
+import { selectFilteredData } from './selectors';
 import { useSelector, useDispatch } from 'react-redux';
 
 const columns = [
@@ -83,7 +83,14 @@ const Component: React.FC = () => {
   useEffect(() => {
     dispatch(gotTableData(data));
   }, []);
-  return <Table columns={columns} dataSource={filterdData} size="small" scroll={{ x: 1200, y: 300 }} />;
+  return (
+    <Table
+      columns={columns}
+      dataSource={filterdData}
+      size="small"
+      scroll={{ x: 1200, y: 300 }}
+    />
+  );
 };
 
 export default Component;

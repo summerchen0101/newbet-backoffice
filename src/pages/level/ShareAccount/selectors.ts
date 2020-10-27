@@ -1,7 +1,7 @@
-import { RootState } from '@/store';
 import { createSelector } from 'reselect';
-
-const selectModuleState = (state: RootState) => state.shareAccount;
+import { ShareAccountState } from './reducer';
+const selectModuleState = (state: { shareAccount: ShareAccountState }) =>
+  state.shareAccount;
 const selectTableData = createSelector(
   selectModuleState,
   (shareAccount) => shareAccount.tableData,

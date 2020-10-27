@@ -1,6 +1,9 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-
-const initialState = {
+export type ShareAccountState = {
+  keyword: string;
+  tableData: any[];
+};
+const initialState: ShareAccountState = {
   keyword: undefined,
   tableData: [],
 };
