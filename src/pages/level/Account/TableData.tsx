@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react';
 import { Table, Space, Checkbox } from 'antd';
 import A from '@/components/A';
-import { gotTableData } from '@/store/account';
-import { selectFilteredData } from '@/store/account/selectors';
+import { gotTableData } from '@/pages/level/Account/reducer';
+import { selectFilteredData } from './selectors';
 import { useSelector, useDispatch } from 'react-redux';
 import ColorBox from '@/components/ColorBox';
 

@@ -1,6 +1,11 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
-const initialState = {
+export type AccountState = {
+  keyword: string;
+  tableData: any[];
+  roleOptions: any[];
+};
+const initialState: AccountState = {
   keyword: '',
   tableData: [],
   roleOptions: [],

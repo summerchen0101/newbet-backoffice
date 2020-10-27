@@ -1,7 +1,7 @@
 import React from 'react';
 import { Input } from 'antd';
 import { useDispatch } from 'react-redux';
-import { changeKeyword } from '@/store/account';
+import { changeKeyword } from '@/pages/level/Account/reducer';
 const { Search } = Input;
 
 const Component: React.FC = () => {

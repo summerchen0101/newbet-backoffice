@@ -5,10 +5,14 @@ import TableData from './TableData';
 import LevelBreadcrumb from './LevelBreadcrumb';
 import KeywordInput from './KeywordInput';
 import PageSearchBar from '@/components/PageSearchBar';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useStore } from 'react-redux';
 import { initSearchState } from '@/pages/account/Manager/reducer';
+import { StoreType } from '@/store';
+import AccountReducer from './reducer';
 
 const Component: React.FC = () => {
+  const store: StoreType = useStore();
+  store.injectReducer('account', AccountReducer);
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(initSearchState());
