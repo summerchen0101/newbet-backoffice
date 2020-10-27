@@ -1,6 +1,13 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import produce from 'immer';
-const initialState = {
+
+export type ManagerState = {
+  searchRole: string;
+  searchStatus: string;
+  searchKeyword: string;
+  tableData: any[];
+  roleOptions: any[];
+};
+const initialState: ManagerState = {
   searchRole: undefined,
   searchStatus: undefined,
   searchKeyword: '',

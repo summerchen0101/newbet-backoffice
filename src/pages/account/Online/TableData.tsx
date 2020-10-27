@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { Table, Space } from 'antd';
-import { gotTableData } from '@/store/online';
-import { selectFilteredData } from '@/store/online/selectors';
+import { gotTableData } from '@/pages/account/Online/reducer';
+import { selectFilteredData } from './selectors';
 import { useSelector, useDispatch } from 'react-redux';
 import ColorBox from '@/components/ColorBox';
 

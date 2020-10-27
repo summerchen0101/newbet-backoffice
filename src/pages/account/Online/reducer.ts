@@ -1,6 +1,11 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
-const initialState = {
+export type OnlineState = {
+  searchRole: string;
+  tableData: any[];
+  roleOptions: any[];
+};
+const initialState: OnlineState = {
   searchRole: undefined,
   tableData: [],
   roleOptions: [],

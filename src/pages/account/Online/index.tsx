@@ -4,10 +4,14 @@ import PageSearchBar from '@/components/PageSearchBar';
 import TableData from './TableData';
 import RoleDropdown from './RoleDropdown';
 import PageHeader from './PageHeader';
-import { useDispatch } from 'react-redux';
-import { initSearchState } from '@/store/online';
+import { useDispatch, useStore } from 'react-redux';
+import { initSearchState } from '@/pages/account/Online/reducer';
+import { StoreType } from '@/store';
+import OnlineReducer from './reducer';
 
 const Component: React.FC = () => {
+  const store: StoreType = useStore();
+  store.injectReducer('online', OnlineReducer);
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(initSearchState());

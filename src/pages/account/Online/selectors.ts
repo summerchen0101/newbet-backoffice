@@ -1,7 +1,7 @@
-import { RootState } from '@/store';
 import { createSelector } from 'reselect';
+import { OnlineState } from './reducer';
 
-const selectModuleState = (state: RootState) => state.online;
+const selectModuleState = (state: { online: OnlineState }) => state.online;
 const selectTableData = createSelector(
   selectModuleState,
   (online) => online.tableData,

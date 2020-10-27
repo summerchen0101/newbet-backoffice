@@ -1,9 +1,7 @@
 import { createSelector } from 'reselect';
-import managerReducer from './reducer';
+import { ManagerState } from './reducer';
 
-const selectModuleState = (state: {
-  manager: ReturnType<typeof managerReducer>;
-}) => state.manager;
+const selectModuleState = (state: { manager: ManagerState }) => state.manager;
 const selectTableData = createSelector(
   selectModuleState,
   (manager) => manager.tableData,
