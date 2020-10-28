@@ -1,9 +1,5 @@
 import React from 'react';
-import Dashboard from '@/components/Dashboard';
-
-import { Table, Tag, Space, Button } from 'antd';
-import { useHistory } from 'react-router-dom';
-import PageHeader from '@/components/PageHeader';
+import { Table, Space } from 'antd';
 import A from '@/components/A';
 import { CheckCircleOutlined } from '@ant-design/icons';
 
@@ -73,24 +69,8 @@ const data = [
   },
 ];
 
-const routes = [
-  {
-    path: '/',
-    breadcrumbName: '首頁',
-  },
-  {
-    path: '/news',
-    breadcrumbName: '公告',
-  },
-];
-
 const Component: React.FC = () => {
-  return (
-    <Dashboard>
-      <PageHeader title="公告" breadcrumb={{ routes }} />
-      <Table columns={columns} dataSource={data} size="small" />
-    </Dashboard>
-  );
+  return <Table columns={columns} dataSource={data} size="small" />;
 };
 
 export default Component;

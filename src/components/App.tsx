@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Switch } from 'react-router-dom';
 import RouteWithSubRoutes from '@/utils/RouteWithSubRoutes';
 import Home from '@/pages/Home';
 import Login from '@/pages/Login';
-import News from '@/pages/news/News';
+import News from '@/pages/news';
 import Sample from '@/pages/Sample';
 import Manager from '@/pages/account/Manager';
 import Online from '@/pages/account/Online';
