@@ -1,16 +1,16 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
-export const moduleName = 'baseball';
+export const moduleName = 'baseballSingle';
 
-export type BaseballState = {
+export type BaseballSingleState = {
   tableData: any[];
 };
-const initialState: BaseballState = {
+const initialState: BaseballSingleState = {
   tableData: [],
 };
 
 const module = createSlice({
-  name: 'rootChange',
+  name: moduleName,
   initialState,
   reducers: {
     gotTableData(state, action: PayloadAction<any[]>) {

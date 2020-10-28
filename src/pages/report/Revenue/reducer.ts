@@ -10,7 +10,7 @@ const initialState: RevenueState = {
 };
 
 const module = createSlice({
-  name: 'rootChange',
+  name: moduleName,
   initialState,
   reducers: {
     gotTableData(state, action: PayloadAction<any[]>) {

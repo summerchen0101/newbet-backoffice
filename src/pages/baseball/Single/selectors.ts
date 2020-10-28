@@ -1,7 +1,7 @@
 import { createSelector } from 'reselect';
-import { BaseballState, moduleName } from './reducer';
+import { BaseballSingleState, moduleName } from './reducer';
 
-const selectModuleState = (state: { [moduleName]: BaseballState }) =>
+const selectModuleState = (state: { [moduleName]: BaseballSingleState }) =>
   state[moduleName];
 
 export const selectTableData = createSelector(
