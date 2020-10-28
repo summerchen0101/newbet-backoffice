@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useReducer } from 'react';
 
 import { Select } from 'antd';
-import { gotRoleOptions, changeRoleSearch } from './reducer';
+import { gotRoleOptions, changeRoleSearch } from '../reducer';
 import {
   selectRoleOptions,
   selectRoleSearch,

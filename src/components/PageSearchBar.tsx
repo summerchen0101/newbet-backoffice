@@ -1,11 +1,18 @@
 import React from 'react';
 import { Space } from 'antd';
 
-const PageSearchBar: React.FC = ({ children, ...props }) => {
+const PageSearchBar: React.FC<{ extra?: React.ElementType }> = ({
+  children,
+  extra: Extra,
+  ...props
+}) => {
   return (
-    <Space size="small" style={{ marginBottom: 20, width: '100%' }} {...props}>
-      {children}
-    </Space>
+    <div style={{ marginBottom: 20 }}>
+      <Space size="small" {...props}>
+        {children}
+      </Space>
+      {Extra && <Extra />}
+    </div>
   );
 };
 

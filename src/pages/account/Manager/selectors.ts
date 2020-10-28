@@ -6,6 +6,14 @@ const selectTableData = createSelector(
   selectModuleState,
   (manager) => manager.tableData,
 );
+export const selectDisplayCreateModal = createSelector(
+  selectModuleState,
+  (manager) => manager.displayCreateModal,
+);
+export const selectDisplayUpdateModal = createSelector(
+  selectModuleState,
+  (manager) => manager.displayUpdateModal,
+);
 export const selectRoleSearch = createSelector(
   selectModuleState,
   (manager) => manager.searchRole,

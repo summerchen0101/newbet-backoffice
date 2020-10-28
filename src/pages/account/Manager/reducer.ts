@@ -6,6 +6,8 @@ export type ManagerState = {
   searchKeyword: string;
   tableData: any[];
   roleOptions: any[];
+  displayCreateModal: boolean;
+  displayUpdateModal: boolean;
 };
 const initialState: ManagerState = {
   searchRole: undefined,
@@ -13,6 +15,8 @@ const initialState: ManagerState = {
   searchKeyword: '',
   tableData: [],
   roleOptions: [],
+  displayCreateModal: false,
+  displayUpdateModal: false,
 };
 
 const module = createSlice({
@@ -39,6 +43,12 @@ const module = createSlice({
       state.searchStatus = undefined;
       state.searchKeyword = '';
     },
+    toggleCreateModal(state, action: PayloadAction<boolean>) {
+      state.displayCreateModal = action.payload;
+    },
+    toggleUpdateModal(state, action: PayloadAction<boolean>) {
+      state.displayUpdateModal = action.payload;
+    },
   },
 });
 
@@ -49,5 +59,7 @@ export const {
   changeKeywordSearch,
   initSearchState,
   gotRoleOptions,
+  toggleCreateModal,
+  toggleUpdateModal,
 } = module.actions;
 export default module.reducer;

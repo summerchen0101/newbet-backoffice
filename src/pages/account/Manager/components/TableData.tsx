@@ -2,10 +2,9 @@ import React, { useEffect, useState } from 'react';
 import { Table, Space, Modal } from 'antd';
 import A from '@/components/A';
 import { CheckOutlined } from '@ant-design/icons';
-import { gotTableData } from './reducer';
+import { gotTableData, toggleUpdateModal } from '../reducer';
 import { selectFilteredData } from '@/pages/account/Manager/selectors';
 import { useSelector, useDispatch } from 'react-redux';
-import CreateModal from './CreateModal';
 const columns = [
   {
     title: '#',
@@ -43,9 +42,12 @@ const columns = [
     title: '編輯',
     key: 'action',
     render: (text, record) => {
+      const dispatch = useDispatch();
       return (
         <Space size="middle">
-          <A type="primary">修改</A>
+          <A type="primary" onClick={() => dispatch(toggleUpdateModal(true))}>
+            修改
+          </A>
           <A type="danger">刪除</A>
         </Space>
       );

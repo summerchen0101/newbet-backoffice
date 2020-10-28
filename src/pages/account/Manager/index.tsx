@@ -1,14 +1,16 @@
 import React, { useEffect, useReducer } from 'react';
 import Dashboard from '@/components/Dashboard';
-import PageHeader from './PageHeader';
-import TableData from './TableData';
-import RoleDropdown from './RoleDropdown';
-import StatusDropdown from './StatusDropdown';
-import KeywordInput from './KeywordInput';
+import PageHeader from './components/PageHeader';
+import TableData from './components/TableData';
+import RoleDropdown from './components/RoleDropdown';
+import StatusDropdown from './components/StatusDropdown';
+import KeywordInput from './components/KeywordInput';
 import PageSearchBar from '@/components/PageSearchBar';
 import { useDispatch, useStore } from 'react-redux';
 import managerReducer, { initSearchState } from './reducer';
-import CreateModal from './CreateModal';
+import CreateModal from './components/CreateModal';
+import UpdateModal from './components/UpdateModal';
+import CreateButton from './components/CreateButton';
 import { StoreType } from '@/store';
 
 const Component: React.FC = () => {
@@ -21,13 +23,14 @@ const Component: React.FC = () => {
   return (
     <Dashboard>
       <PageHeader />
-      <PageSearchBar>
+      <PageSearchBar extra={CreateButton}>
         <RoleDropdown />
         <StatusDropdown />
         <KeywordInput />
       </PageSearchBar>
       <TableData />
       <CreateModal />
+      <UpdateModal />
     </Dashboard>
   );
 };
