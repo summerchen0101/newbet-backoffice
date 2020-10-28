@@ -1,14 +1,13 @@
-import React, { useEffect, useReducer } from 'react';
+import React from 'react';
 import Dashboard from '@/components/Dashboard';
 import PageHeader from './PageHeader';
-import { useDispatch } from 'react-redux';
-import { initSearchState } from '@/pages/account/Manager/reducer';
+import { StoreType } from '@/store';
+import { useStore } from 'react-redux';
+import AccountingReducer, { moduleName } from './reducer';
 
 const Component: React.FC = () => {
-  const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(initSearchState());
-  }, []);
+  const store: StoreType = useStore();
+  store.injectReducer(moduleName, AccountingReducer);
   return (
     <Dashboard>
       <PageHeader />
