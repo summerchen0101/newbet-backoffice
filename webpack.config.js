@@ -4,25 +4,25 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 var CaseSensitivePathsPlugin = require('case-sensitive-paths-webpack-plugin');
 const path = require('path');
 module.exports = {
-  entry: path.resolve(__dirname, 'src/app/index.tsx'),
+  entry: path.resolve(__dirname, 'src/index.tsx'),
   plugins: [
     new CaseSensitivePathsPlugin(),
     new CleanWebpackPlugin({
-      cleanAfterEveryBuildPatterns: ['public/build'],
+      cleanAfterEveryBuildPatterns: ['public'],
     }),
     new HtmlWebpackPlugin({
       template: 'src/templates/index.html',
     }),
   ],
   output: {
+    publicPath: '/',
     path: __dirname + '/public',
     filename: 'build/[name].[contenthash].js',
   },
   resolve: {
     extensions: ['.ts', '.tsx', '.js'],
     alias: {
-      store: path.resolve(__dirname, 'src/app/store'),
-      app: path.resolve(__dirname, 'src/app'),
+      '@': path.resolve(__dirname, 'src'),
     },
   },
   module: {
