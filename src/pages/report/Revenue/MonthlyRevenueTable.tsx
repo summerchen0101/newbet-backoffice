@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react';
 import { Table, Space } from 'antd';
-import sports from '@/lib/sports';
 import moment from 'moment';
 moment.locale('zh-tw');
 

@@ -3,7 +3,6 @@ import { Table } from 'antd';
 const { Column, ColumnGroup } = Table;
 import sports from '@/lib/sports';
 import ColorNumberText from '@/components/ColorNumberText';
-import numeral from 'numeral';
 import moment from 'moment';
 moment.locale('zh-tw');
 
