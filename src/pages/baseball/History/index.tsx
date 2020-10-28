@@ -7,15 +7,14 @@ import TypeDropdown from './TypeDropdown';
 import SearchSubmitBtn from './SearchSubmitBtn';
 import SearchResetBtn from './SearchResetBtn';
 import TableData from './TableData';
-import { useDispatch } from 'react-redux';
-import { initSearchState } from '@/pages/account/Manager/reducer';
 import PageSearchBar from '@/components/PageSearchBar';
+import { StoreType } from '@/store';
+import { useStore } from 'react-redux';
+import baseballHistoryReducer, { moduleName } from './reducer';
 
 const Component: React.FC = () => {
-  const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(initSearchState());
-  }, []);
+  const store: StoreType = useStore();
+  store.injectReducer(moduleName, baseballHistoryReducer);
   return (
     <Dashboard>
       <PageHeader />
