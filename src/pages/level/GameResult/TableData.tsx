@@ -1,9 +1,5 @@
 import React, { useEffect } from 'react';
 import { Table, Space } from 'antd';
-import { gotTableData } from '@/pages/account/Manager/reducer';
-import { selectFilteredData } from '@/pages/account/Manager/selectors';
-import { useSelector, useDispatch } from 'react-redux';
-import { toCurrency } from '@/utils/transfer';
 
 const columns = [
   {
@@ -64,15 +60,10 @@ const data = [
 ];
 
 const Component: React.FC = () => {
-  const dispatch = useDispatch();
-  const filterdData = useSelector(selectFilteredData);
-  useEffect(() => {
-    dispatch(gotTableData(data));
-  }, []);
   return (
     <Table
       columns={columns}
-      dataSource={filterdData}
+      dataSource={data}
       size="small"
       scroll={{ x: 1200, y: 300 }}
     />
